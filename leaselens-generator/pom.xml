@@ -16,6 +16,12 @@
 
     <dependencies>
         <dependency>
+            <!-- Test only: checks that generated data passes the real validation rules. -->
+            <groupId>com.leaselens</groupId>
+            <artifactId>leaselens-data</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
@@ -23,7 +29,19 @@
     </dependencies>
 
     <build>
+        <finalName>leaselens-generator</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.leaselens.generator.GeneratorCli</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

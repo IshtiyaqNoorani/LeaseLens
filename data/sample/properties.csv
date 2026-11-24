@@ -1,0 +1,51 @@
+property_id,property_name,property_type,location_zone,rentable_area_sqft,acquisition_value,total_units
+P001,Jasmine Court,RESIDENTIAL,Riverside,4200,53700000.00,4
+P002,Riverbend Plaza,RETAIL,South Industrial Belt,5610,70500000.00,2
+P003,Horizon Industrial Estate,INDUSTRIAL,South Industrial Belt,27170,96700000.00,1
+P004,Banyan Residency,RESIDENTIAL,North Corridor,3100,44600000.00,3
+P005,Sapphire House,OFFICE,Central Business District,16940,363400000.00,4
+P006,Falcon House,OFFICE,South Industrial Belt,11960,203200000.00,3
+P007,Tamarind Enclave,RESIDENTIAL,East Tech Corridor,4720,60700000.00,4
+P008,Neem Corporate Park,OFFICE,Central Business District,3500,80700000.00,1
+P009,Ashoka Residency,RESIDENTIAL,West Suburbs,3240,35600000.00,3
+P010,Sapphire Business Centre,OFFICE,West Suburbs,4310,45300000.00,1
+P011,Monarch Apartments,RESIDENTIAL,West Suburbs,2800,30600000.00,3
+P012,Harbour Galleria,RETAIL,West Suburbs,1220,24700000.00,1
+P013,Riverbend Apartments,RESIDENTIAL,West Suburbs,4180,37600000.00,4
+P014,Crescent Court,RESIDENTIAL,Central Business District,2410,40300000.00,2
+P015,Tamarind Business Centre,OFFICE,West Suburbs,6730,119600000.00,3
+P016,Neem Tower,OFFICE,Riverside,1650,23400000.00,1
+P017,Quartz Enclave,RESIDENTIAL,South Industrial Belt,2520,20400000.00,2
+P018,Saffron Galleria,RETAIL,Central Business District,4750,123100000.00,2
+P019,Harbour Enclave,RESIDENTIAL,Central Business District,3170,58800000.00,3
+P020,Monarch Warehousing Hub,INDUSTRIAL,South Industrial Belt,66250,185100000.00,2
+P021,Aurora Tower,OFFICE,Riverside,9220,125500000.00,2
+P022,Harbour Apartments,RESIDENTIAL,South Industrial Belt,2920,39400000.00,2
+P023,Pinnacle Enclave,RESIDENTIAL,Central Business District,1660,23000000.00,2
+P024,Granite Corporate Park,OFFICE,South Industrial Belt,6580,75700000.00,2
+P025,Jasmine Apartments,RESIDENTIAL,North Corridor,3410,31300000.00,3
+P026,Orchid Market,RETAIL,Riverside,4850,130800000.00,3
+P027,Kestrel Corporate Park,OFFICE,West Suburbs,3410,44000000.00,1
+P028,Emerald Business Centre,OFFICE,North Corridor,15110,191800000.00,4
+P029,Quartz Court,RESIDENTIAL,East Tech Corridor,2240,31800000.00,2
+P030,Saffron Arcade,RETAIL,West Suburbs,4010,60800000.00,2
+P031,Teak Enclave,RESIDENTIAL,South Industrial Belt,1900,23000000.00,2
+P032,Monarch Residency,RESIDENTIAL,Riverside,3040,36900000.00,2
+P033,Maple Warehousing Hub,INDUSTRIAL,South Industrial Belt,51960,103700000.00,2
+P034,Saffron Market,RETAIL,North Corridor,8630,152400000.00,3
+P035,Kestrel Industrial Estate,INDUSTRIAL,South Industrial Belt,33180,69400000.00,2
+P036,Jasmine House,OFFICE,Riverside,5380,67500000.00,2
+P037,Horizon Enclave,RESIDENTIAL,East Tech Corridor,3740,43600000.00,4
+P038,Banyan Galleria,RETAIL,West Suburbs,1220,15900000.00,1
+P039,Emerald Heights,RESIDENTIAL,North Corridor,2320,31300000.00,2
+P040,Willow Enclave,RESIDENTIAL,West Suburbs,3790,28400000.00,3
+P041,Zenith Court,RESIDENTIAL,Riverside,1550,16200000.00,2
+P042,Harbour Business Centre,OFFICE,West Suburbs,9350,163000000.00,2
+P043,Summit House,OFFICE,North Corridor,5500,104000000.00,1
+P044,Palmgrove Court,RESIDENTIAL,Central Business District,3800,54200000.00,4
+P045,Harbour Market,RETAIL,East Tech Corridor,5990,77900000.00,3
+P046,Tamarind Industrial Estate,INDUSTRIAL,South Industrial Belt,49560,140000000.00,2
+P047,Saffron Galleria II,RETAIL,North Corridor,5770,73700000.00,3
+P048,Coral Plaza,RETAIL,Riverside,4720,102100000.00,2
+P049,Lighthouse Market,RETAIL,North Corridor,6190,153900000.00,3
+P050,Lighthouse Business Centre,OFFICE,Riverside,8310,129800000.00,2
