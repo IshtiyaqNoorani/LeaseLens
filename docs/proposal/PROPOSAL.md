@@ -1,15 +1,15 @@
-# Project Proposal: CIA 3 Advanced Algorithm (draft v0.1)
+# Project Proposal: CIA 3 Advanced Algorithm
 
 **Title:** LeaseLens: Rental Portfolio Cash-Flow and Payment-Behaviour Analytics using Segment Trees and Randomized Selection
 
 **Team (group of two)**
 
-| Name | Student ID | Primary ownership (proposed) |
+| Name | Student ID | Primary ownership |
 |---|---|---|
-| Raakin Majeed | 2404537 | Segment Tree, Cash-Flow Explorer, segment-tree benchmarks |
-| Ishtiyaq Noorani | 2408912 | Randomized Quickselect, Payment Behaviour, CO5 study, EDA |
+| Raakin Majeed | 2404537 | Segment Tree, Cash-Flow Explorer, segment-tree benchmarks, data validation |
+| Ishtiyaq Noorani | 2408912 | Randomized Quickselect, Payment Behaviour, CO5 seed study, data generator, Python EDA |
 
-Shared: data ingestion and validation, KPI services, frontend, technical report.
+Shared: KPI services and REST API, frontend, QA, technical report.
 
 ## 1. Real-world problem
 Operators of mixed residential and commercial rental portfolios keep billing, collections and operating costs in separate ledgers. Basic management questions are slow and error-prone to answer: *How much net cash did a property, or the whole portfolio, generate between two dates, and what was the worst day? How late do tenants typically pay, and which payments are in the slow tail? Which assets turn billed rent into cash least efficiently?* Records are also corrected after the fact (reversed charges, late postings), so the answers must update cheaply when that happens.
