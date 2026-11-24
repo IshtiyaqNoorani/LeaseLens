@@ -46,6 +46,11 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return p;
     }
 
+    @ExceptionHandler(com.leaselens.api.service.ApiExceptions.BusyException.class)
+    public ProblemDetail busy(com.leaselens.api.service.ApiExceptions.BusyException ex) {
+        return problem(HttpStatus.CONFLICT, "Busy", ex.getMessage());
+    }
+
     @ExceptionHandler(ArithmeticException.class)
     public ProblemDetail overflow(ArithmeticException ex) {
         return problem(HttpStatus.UNPROCESSABLE_ENTITY, "Calculation out of range",

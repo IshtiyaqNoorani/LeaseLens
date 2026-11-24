@@ -17,6 +17,15 @@ public final class ApiExceptions {
         }
     }
 
+    /** 409: a one-at-a-time operation (a live benchmark) is already running. */
+    public static final class BusyException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
+
+        public BusyException(String message) {
+            super(message);
+        }
+    }
+
     /** 404: an identifier in the URL or a parameter does not exist. */
     public static final class NotFoundException extends RuntimeException {
         private static final long serialVersionUID = 1L;

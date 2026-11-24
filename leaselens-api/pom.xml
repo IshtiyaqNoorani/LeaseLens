@@ -24,6 +24,11 @@
             <artifactId>leaselens-data</artifactId>
         </dependency>
         <dependency>
+            <!-- Benchmark harness and baselines, for the Algorithm Lab's bounded live runs. -->
+            <groupId>com.leaselens</groupId>
+            <artifactId>leaselens-bench</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -49,6 +54,11 @@
             <resource>
                 <directory>../data/sample</directory>
                 <targetPath>datasets/sample</targetPath>
+                <includes><include>*.csv</include></includes>
+            </resource>
+            <resource>
+                <directory>../benchmarks/results</directory>
+                <targetPath>benchmarks</targetPath>
                 <includes><include>*.csv</include></includes>
             </resource>
             <resource>

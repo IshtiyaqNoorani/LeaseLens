@@ -332,6 +332,38 @@ class ApiIntegrationTest {
                 .andExpect(jsonPath("$.openObligations").value(2));
     }
 
+    // ------------------------------------------------------------------ algorithm lab
+
+    @Test
+    @DisplayName("Committed benchmark results are served, all verified")
+    void benchmarkResults() throws Exception {
+        mvc.perform(get("/api/benchmarks/results"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.available").value(true))
+                .andExpect(jsonPath("$.tables.segment_tree.metadata.timed_repetitions").exists())
+                .andExpect(jsonPath("$.tables.segment_tree.rows[?(@.verified == false)]").isEmpty())
+                .andExpect(jsonPath("$.tables.quickselect.rows[?(@.verified == false)]").isEmpty())
+                .andExpect(jsonPath("$.tables.seed_study.rows[?(@.all_correct == false)]").isEmpty())
+                .andExpect(jsonPath("$.tables.segment_tree.rows[0].vs_assessed").exists());
+    }
+
+    @Test
+    @DisplayName("A small live benchmark runs; oversized requests are refused")
+    void liveBenchmark() throws Exception {
+        mvc.perform(post("/api/benchmarks/run").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"suite\":\"quickselect\",\"sizes\":[500],\"repetitions\":3}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.rows.length()").value(4))
+                .andExpect(jsonPath("$.rows[0].algorithm").value("RandomizedQuickselect"))
+                .andExpect(jsonPath("$.rows[0].verified").value(true));
+        mvc.perform(post("/api/benchmarks/run").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"suite\":\"segment-tree\",\"sizes\":[1000000]}"))
+                .andExpect(status().isBadRequest());
+        mvc.perform(post("/api/benchmarks/run").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"suite\":\"bogosort\"}"))
+                .andExpect(status().isBadRequest());
+    }
+
     // ------------------------------------------------------------------ expenses
 
     @Test
