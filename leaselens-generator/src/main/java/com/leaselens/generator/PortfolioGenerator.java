@@ -329,13 +329,15 @@ public final class PortfolioGenerator {
             int monthsIn = (int) ChronoUnit.MONTHS.between(YearMonth.from(horizonStart), month);
 
             long collectible = duePaise;
+            boolean shortPaid = false;
             if (defaulted) {
                 collectible = 0;
-            } else if (property.degrading() && monthsIn >= 18 && rng.chance(0.30)) {
-                collectible = roundTo((long) (duePaise * rng.between(0.4, 0.8)), 10_000L); // part-paid, rest never arrives
+            } else if (property.degrading() && monthsIn >= 18 && rng.chance(0.45)) {
+                collectible = roundTo((long) (duePaise * rng.between(0.3, 0.7)), 10_000L); // part-paid, rest never arrives
             } else if (rng.chance(shortPayChance(effective, property.type()))) {
                 // Short payment: part of the rent is disputed or withheld and is still owed at the horizon end.
                 collectible = roundTo((long) (duePaise * rng.between(0.5, 0.9)), 10_000L);
+                shortPaid = true;
             }
             int delay = delayDays(effective, property, monthsIn, rng);
             LocalDate finalDate = due.plusDays(delay);
@@ -348,6 +350,11 @@ public final class PortfolioGenerator {
             }
 
             List<TransactionRow> payments = schedule(obligationId, due, finalDate, collectible, effective, rng);
+            if (shortPaid && collectible < duePaise && rng.chance(0.75)) {
+                // Most short-paid balances are recovered after follow-up, 15 to 120 days later.
+                payments.add(new TransactionRow(obligationId, finalDate.plusDays(rng.between(15, 120)),
+                        duePaise - collectible));
+            }
             long paid = 0;
             LocalDate settled = null;
             for (TransactionRow t : payments) {
