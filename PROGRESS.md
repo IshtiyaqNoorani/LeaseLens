@@ -66,6 +66,13 @@
 - [x] Algorithm Lab screen: environment, Segment Tree charts and tables by correction share and range length, build cost, quickselect vs sort by input shape, k-percentile crossover, pivot and partition table, seed-study table and histogram, live-run panel. Browser-verified
 - Honest findings for the report: a scan beats the tree on short ranges; prefix sums beat it for sum-only queries with rare corrections; the JDK sort beats quickselect on presorted data and, for LeaseLens's 3 percentiles on delay data, a single sort would be as fast or faster
 
+## Phase 7: Python exploratory data analysis (complete)
+- [x] `analytics/LeaseLens_EDA.ipynb` (34 cells, committed with outputs; source in `build_notebook.py`), Python 3.13 venv, pinned `requirements.txt`, 7 figures in `analytics/figures/`
+- [x] Integrity checks repeated independently (14/14 pass); **18 figures from the Java API recomputed in pandas, all match exactly**, including the Quickselect percentiles (checked against sorting) and the Segment Tree full-range total
+- [x] Descriptive statistics, rent and delay distributions (ECDF), Kruskal–Wallis and Mann–Whitney tests with effect size, a hand-written Kaplan–Meier for censored delays, monthly occupancy, property comparisons, Spearman correlations with bootstrap CIs and a negative control, seasonality, robust-z expense outliers, segmentation by type, 7 generated insights
+- [x] Planted ground truth: 5 recovered, 1 partly (outsized repairs, 3 of 6: explained in the notebook), negative control holds
+- Honest notes: per-sq-ft expense–collection correlation (0.91) comes from fees being a share of potential rent, so the spec wording was corrected; the Kaplan–Meier tail (P90 19 / P95 37 days vs 16 / 29) shows the censoring bias the UI warns about
+
 ## Open questions for the team
 1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)

@@ -35,4 +35,4 @@ Source: `CIA3_Advanced_Algorithm_Project_Guidelines_2026-27.pdf` (§ = PDF secti
 | R29 | §11 | Measurable success criteria | PROJECT_PLAN §5 criteria 1–6 | Proposal, report | Criteria 1–5 verified (tests, benchmarks); 6 (fresh clone) in Phase 8 | In progress |
 | R30 | §11 | Sound probabilistic behaviour | Seed studies, Las Vegas proof, fixed seeds in tests | Tests, `docs/algorithms/RANDOMIZED_QUICKSELECT.md`, seed study | Statistical test + seed study (pass) | Done (verified) |
 | R31 | §11 | Backend quality: separation, validation, errors, maintainability | Layered modules (web → service → store → data/algorithms), ProblemDetail errors, atomic snapshot swap | Source | 33 API-module tests pass | Done (verified) |
-| R32 | Brief | Python EDA (supplementary only) | `analytics/LeaseLens_EDA.ipynb` | Notebook | Runs top to bottom in a clean venv | Planned |
+| R32 | Brief | Python EDA (supplementary only) | `analytics/LeaseLens_EDA.ipynb` | Notebook (with outputs) + figures | Executes top to bottom in a fresh venv; 18/18 cross-checks match the Java API | Done (verified) |

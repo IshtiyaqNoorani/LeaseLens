@@ -14,7 +14,7 @@ This file records who owns, wrote or reviewed each part, and is updated at the e
 | Services and REST API (cash-flow service: Raakin; payment service: Ishtiyaq; rest shared) | Shared | Shared | Done (Phase 4), committed with co-author trailers |
 | Frontend (Cash-Flow Explorer screen: Raakin; Payment Behaviour screen: Ishtiyaq; rest shared) | Shared | Shared | Done (Phase 5), committed with co-author trailers |
 | Benchmarks: segment tree / quickselect | Raakin / Ishtiyaq | Each other | Done (Phase 6), committed per owner |
-| Python EDA | Ishtiyaq Noorani | Raakin Majeed | Planned (Phase 7) |
+| Python EDA | Ishtiyaq Noorani | Raakin Majeed | Done (Phase 7) |
 | Report, README, demo, viva prep | Shared | Shared | Planned (Phase 9) |
 
 Ownership is proposed and must be confirmed by both members.

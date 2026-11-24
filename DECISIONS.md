@@ -47,3 +47,7 @@ Phase 0 decisions approved by the team on 2026-11-24.
 | D-040 | Accepted (Phase 6) | Lab live runs: one at a time (409 if busy), n ≤ 100k, ≤ 10 reps, 3 warm-ups, labelled indicative | Safe to click in a demo; the committed run remains the reference |
 | D-041 | Accepted (Phase 6) | Report findings where our algorithms lose (short ranges, sum-only queries, presorted input, 3 percentiles on delay data) | PDF §5 asks for "conditions under which it helps"; honest limits are stronger in the viva than overclaiming |
 | D-042 | Accepted (Phase 6) | Runnable benchmark jar `leaselens-bench-cli.jar` (shaded, separate file); the module jar stays thin for the API | The API reuses the harness without duplicating algorithm classes |
+| D-043 | Accepted (Phase 7) | Notebook generated from `build_notebook.py` and committed with outputs; Python 3.13 venv with pinned versions | Reviewable source, readable without running, reproducible |
+| D-044 | Accepted (Phase 7) | Percentiles cross-checked by full sorting in pandas, a method different from the Java Quickselect | Agreement between independent methods is meaningful evidence |
+| D-045 | Accepted (Phase 7) | Kaplan–Meier written by hand (no lifelines dependency) to quantify right-censoring | Explains the UI's censoring note with numbers |
+| D-046 | Accepted (Phase 7) | No forecasting model built; proposed only (notebook §17) | Brief and D-010: no ML for appearance's sake |
