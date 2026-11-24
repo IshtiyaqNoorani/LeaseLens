@@ -73,6 +73,14 @@
 - [x] Planted ground truth: 5 recovered, 1 partly (outsized repairs, 3 of 6: explained in the notebook), negative control holds
 - Honest notes: per-sq-ft expense–collection correlation (0.91) comes from fees being a share of potential rent, so the spec wording was corrected; the Kaplan–Meier tail (P90 19 / P95 37 days vs 16 / 29) shows the censoring bias the UI warns about
 
+## Phase 8: Integration and QA (complete)
+- [x] Fresh clone: `./mvnw verify` 172/172, `npm ci && npm run build` OK, sample and fixtures regenerate byte-identical
+- [x] Running jar: README examples work; error statuses correct; **all 23 invalid fixtures rejected via the upload endpoint with the expected rule**; endpoints answer in 1–20 ms
+- [x] Cross-component agreement (Segment Tree = Overview = pandas; Quickselect = pandas sort; golden values)
+- [x] 9 full-page screenshots in `docs/screenshots/`; chart animations disabled so charts render fully and hold their frame
+- [x] `docs/demo/QA_REPORT.md`
+- [ ] Second-machine run (Raakin's laptop or Windows): recommended before the demo
+
 ## Open questions for the team
 1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)

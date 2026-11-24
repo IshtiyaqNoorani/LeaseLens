@@ -21,7 +21,7 @@ Source: `CIA3_Advanced_Algorithm_Project_Guidelines_2026-27.pdf` (§ = PDF secti
 | R15 | §5 | ≥5 correctness tests per core algorithm incl. an edge case | 22 segment tree, 19 quickselect, 38 percentile; edge, invalid and stress cases included | JUnit | `./mvnw verify`: 79/79 pass (Phase 2) | Done (verified) |
 | R16 | §5 | Benchmarks at ≥3 increasing sizes | 1k / 10k / 100k (1M not run: the linear-scan baseline would take minutes per configuration) | `benchmarks/results/*.csv` | Committed CSVs; 168 measurements verified | Done (verified) |
 | R17 | §5 | Baseline comparison and when it helps | Linear scan and prefix sums; full sort; fixed pivot; two-way partition | `benchmarks/BENCHMARKS.md` §4, Lab | 12 findings with win/lose conditions and crossovers | Done (verified) |
-| R18 | §5 | Runnable from repo with written steps and sample data | Maven wrapper, npm lockfile, `data/sample` | README | Fresh-clone run on a second machine | Planned |
+| R18 | §5 | Runnable from repo with written steps and sample data | Maven wrapper, npm lockfile, `data/sample` | README, `docs/demo/QA_REPORT.md` | Fresh-clone run passed on the development machine; second machine pending | In progress |
 | R19 | §6 | Java executes algorithms server-side; no browser or precomputed substitutes | Frontend renders API results only; type/zone aggregation moved to a Java endpoint | Code review | Frontend contains formatting only (no KPI or algorithm logic) | Done (verified) |
 | R20 | §7 | Not a static dashboard or CRUD | Parameterised algorithm-driven analytics with corrections | UI | Browser-verified (Phase 5) | Done (verified) |
 | R21 | §7 | Sample idea needs substantial custom work | Depth items (PHASE0 §3.3) | Report "Contribution beyond the sample idea" | Faculty review | Planned |
@@ -32,7 +32,7 @@ Source: `CIA3_Advanced_Algorithm_Project_Guidelines_2026-27.pdf` (§ = PDF secti
 | R26 | §8E | README: prereqs, commands, env vars, API examples, dataset, screenshots | `README.md` | File | Fresh-clone test | Planned |
 | R27 | §10 | 8-minute demo: use case, algorithm results, failure handling, performance | Demo script | `docs/demo/DEMO_SCRIPT.md` | Timed rehearsal | Planned |
 | R28 | §10 | 2-minute individual viva: contribution, algorithm, correctness, complexity; modified inputs; method walkthrough | Per-member viva sheets; editable inputs in UI | `docs/viva/` | Mock viva | Planned |
-| R29 | §11 | Measurable success criteria | PROJECT_PLAN §5 criteria 1–6 | Proposal, report | Criteria 1–5 verified (tests, benchmarks); 6 (fresh clone) in Phase 8 | In progress |
+| R29 | §11 | Measurable success criteria | PROJECT_PLAN §5 criteria 1–6 | Proposal, report | All 6 verified (fresh clone in Phase 8); a second machine is still recommended | Done (verified) |
 | R30 | §11 | Sound probabilistic behaviour | Seed studies, Las Vegas proof, fixed seeds in tests | Tests, `docs/algorithms/RANDOMIZED_QUICKSELECT.md`, seed study | Statistical test + seed study (pass) | Done (verified) |
 | R31 | §11 | Backend quality: separation, validation, errors, maintainability | Layered modules (web → service → store → data/algorithms), ProblemDetail errors, atomic snapshot swap | Source | 33 API-module tests pass | Done (verified) |
 | R32 | Brief | Python EDA (supplementary only) | `analytics/LeaseLens_EDA.ipynb` | Notebook (with outputs) + figures | Executes top to bottom in a fresh venv; 18/18 cross-checks match the Java API | Done (verified) |
