@@ -5,6 +5,7 @@ Team of two: Raakin Majeed (2404537), Ishtiyaq Noorani (2408912).
 The authoritative requirements are in `CIA3_Advanced_Algorithm_Project_Guidelines_2026-27.pdf`.
 
 ## Phase gates
+- All phases 0–9 are complete (see PROGRESS.md). Further work is maintenance, or the team's remaining actions listed there.
 - Work only in the phase the team has approved (see PROGRESS.md). Phase 0 approved 2026-11-24 (LeaseLens; Segment Tree + Randomized Quickselect; no Randomized Quick Sort).
 - After each phase: run all tests, update PROGRESS.md, REQUIREMENTS_TRACEABILITY.md and DECISIONS.md, then stop for review.
 - Never push to GitHub, deploy, or share data externally without explicit permission.

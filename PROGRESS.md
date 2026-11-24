@@ -81,6 +81,19 @@
 - [x] `docs/demo/QA_REPORT.md`
 - [ ] Second-machine run (Raakin's laptop or Windows): recommended before the demo
 
+## Phase 9: Academic documentation and submission package (complete)
+- [x] Technical report `docs/report/LeaseLens_Technical_Report.pdf` (5 pages, within 5–8): problem and constraints, architecture diagram and API, pseudocode, correctness, complexity, test evidence, benchmark method and results with 2 figures from the CSVs, analytical results, limitations, individual contributions, AI-assistance disclosure
+- [x] Final proposal `docs/proposal/LeaseLens_Proposal.pdf` (2 pages, within 1–2), including the request for faculty confirmation of the Unit 6 mapping
+- [x] Demo script (8 min, timed, split between both members), viva sheets per member (2-minute answer, method walkthrough with file:line, likely questions), submission checklist, final README with screenshots and troubleshooting
+- [x] PDFs built reproducibly from Markdown (`docs/report/build_pdf.py`, which checks the page limits)
+
+## Remaining actions for the team (cannot be done by the code)
+1. Get faculty confirmation that randomized selection counts as Unit 6 / CO5.
+2. Check the course policy on AI-assisted development (disclosed in the report and CONTRIBUTIONS.md).
+3. Run the project on a second machine using only the README.
+4. Rehearse the demo (8 min) and each viva (2 min).
+5. Push to GitHub when you decide to; nothing has been pushed.
+
 ## Open questions for the team
 1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)
