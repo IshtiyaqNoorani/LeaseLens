@@ -116,7 +116,7 @@ export default function CashFlow() {
 
       {r && (
         <div className={`space-y-5 ${result.loading ? 'opacity-60' : ''}`}>
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
+          <div className="grid gap-4 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
             <Hero
               label={`Net cash flow · ${scope === 'portfolio' ? 'portfolio' : scope}`}
               value={rupeesCompact(r.netCashFlowPaise)}

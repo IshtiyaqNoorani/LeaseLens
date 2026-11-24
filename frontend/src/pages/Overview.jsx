@@ -27,7 +27,7 @@ export default function Overview() {
       <ProblemBanner error={error} onRetry={reload} />
       {o && (
         <div className={`space-y-5 transition-opacity ${loading ? 'opacity-60' : ''}`}>
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
+          <div className="grid gap-4 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
             <Hero
               label="Net operating cash surplus"
               value={rupeesCompact(o.netOperatingCashSurplusPaise)}

@@ -46,7 +46,7 @@ export function Hero({ label, value, note }) {
   return (
     <div className="rounded-lg border border-line bg-surface px-5 py-4">
       <div className="text-xs font-medium uppercase tracking-wide text-muted">{label}</div>
-      <div className="mt-1 text-5xl font-semibold tracking-tight text-ink">{value}</div>
+      <div className="mt-1 whitespace-nowrap text-4xl font-semibold tracking-tight text-ink 2xl:text-5xl">{value}</div>
       {note && <div className="mt-2 max-w-md text-xs text-muted">{note}</div>}
     </div>
   )
