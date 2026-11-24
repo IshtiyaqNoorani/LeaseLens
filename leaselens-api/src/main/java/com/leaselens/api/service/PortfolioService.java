@@ -75,6 +75,12 @@ public class PortfolioService {
                            List<MonthPoint> monthlyTrend, List<AttentionFlag> attention) {
     }
 
+    public record Segment(String key, int propertyCount, long rentableAreaSqft, long rentBilledPaise,
+                          long rentCollectedPaise, Double collectionEfficiencyPct, Double timeWeightedOccupancyPct,
+                          long operatingExpensesPaise, long netOperatingCashSurplusPaise, Double expenseRatioPct,
+                          long outstandingPaise) {
+    }
+
     public record LeaseView(String leaseId, String tenantId, LocalDate startDate, LocalDate endDate,
                             long monthlyRentPaise, long leasedAreaSqft, int billingDay, String stateOnAnalysisDate) {
     }
@@ -117,6 +123,35 @@ public class PortfolioService {
         List<PropertyMetrics> rows = new ArrayList<>(computeAll(s, range));
         rows.sort(comparator(sort, order));
         return rows;
+    }
+
+    /** Portfolio KPIs grouped by property type or location zone, recomputed from the property rows. */
+    public List<Segment> segments(LocalDate from, LocalDate to, String dimension) {
+        Snapshot s = store.require();
+        DateRange range = DateRange.resolve(from, to, s);
+        String dim = dimension == null ? "type" : dimension.strip().toLowerCase(java.util.Locale.ROOT);
+        Function<PropertyMetrics, String> key = switch (dim) {
+            case "type" -> PropertyMetrics::type;
+            case "zone" -> PropertyMetrics::zone;
+            default -> throw new IllegalArgumentException("dimension must be 'type' or 'zone'.");
+        };
+        Map<String, long[]> sums = new java.util.TreeMap<>();
+        // count, area, billed, collected, cohortPaid, leasedAreaDays, opex, outstanding
+        for (PropertyMetrics m : computeAll(s, range)) {
+            long[] v = sums.computeIfAbsent(key.apply(m), k -> new long[8]);
+            v[0]++;
+            v[1] += m.rentableAreaSqft();
+            v[2] += m.rentBilledPaise();
+            v[3] += m.rentCollectedPaise();
+            v[4] += m.cohortPaidPaise();
+            v[5] += m.rentableAreaSqft() * range.days() - m.vacantAreaDays();
+            v[6] += m.operatingExpensesPaise();
+            v[7] += m.outstandingPaise();
+        }
+        List<Segment> result = new ArrayList<>();
+        sums.forEach((k, v) -> result.add(new Segment(k, (int) v[0], v[1], v[2], v[3], Ratios.pct(v[4], v[2]),
+                Ratios.pct(v[5], v[1] * range.days()), v[6], v[3] - v[6], Ratios.pct(v[6], v[3]), v[7])));
+        return result;
     }
 
     public PropertyDetail property(String propertyId, LocalDate from, LocalDate to) {

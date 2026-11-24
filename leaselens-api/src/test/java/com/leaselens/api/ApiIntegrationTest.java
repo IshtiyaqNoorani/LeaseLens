@@ -180,6 +180,19 @@ class ApiIntegrationTest {
     }
 
     @Test
+    @DisplayName("Segments by type aggregate the golden properties")
+    void segments() throws Exception {
+        mvc.perform(get("/api/properties/segments").param("dimension", "type"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.segments.length()").value(2))
+                .andExpect(jsonPath("$.segments[0].key").value("RESIDENTIAL"))
+                .andExpect(jsonPath("$.segments[0].collectionEfficiencyPct").value(77.78))
+                .andExpect(jsonPath("$.segments[1].netOperatingCashSurplusPaise").value(25_000_000));
+        mvc.perform(get("/api/properties/segments").param("dimension", "colour"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
     @DisplayName("Property detail, and 404 for an unknown property")
     void propertyDetail() throws Exception {
         mvc.perform(get("/api/properties/P001"))

@@ -42,6 +42,16 @@ public class PortfolioController {
         return new PerformanceView(rows.size(), rows);
     }
 
+    public record SegmentsView(String dimension, List<PortfolioService.Segment> segments) {
+    }
+
+    @GetMapping("/properties/segments")
+    public SegmentsView segments(@RequestParam(required = false) LocalDate from,
+                                 @RequestParam(required = false) LocalDate to,
+                                 @RequestParam(defaultValue = "type") String dimension) {
+        return new SegmentsView(dimension, portfolio.segments(from, to, dimension));
+    }
+
     @GetMapping("/properties/{id}")
     public PropertyDetail property(@PathVariable String id,
                                    @RequestParam(required = false) LocalDate from,
