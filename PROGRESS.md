@@ -19,6 +19,14 @@
 - [x] API contract `docs/api/API_CONTRACT.md`; proposal draft `docs/proposal/PROPOSAL.md`; CONTRIBUTIONS.md; README
 - [x] Committed: `4bd8daa` (Phase 0 docs), `4797217` (Phase 1 foundation)
 
+## Phase 2: Java algorithm implementation and testing (complete, awaiting review)
+- [x] `SegmentTree`: range sum / min / max with earliest-index tie rule, point update, overflow-checked sums with rollback, optional node-visit counting (owner: Raakin Majeed)
+- [x] `RandomizedQuickselect`: random pivot, three-way partition, iterative, non-mutating `select`, `selectMany`, comparison counting (owner: Ishtiyaq Noorani)
+- [x] `Percentile`: nearest rank k = ceil(P*n/100) - 1 in exact integer arithmetic; parsing and formatting
+- [x] 79 JUnit tests pass (SegmentTree 22, Quickselect 19, Percentile 38), including randomized differential tests against brute force and sorting
+- [x] Pseudocode, correctness proofs and complexity notes: `docs/algorithms/SEGMENT_TREE.md`, `docs/algorithms/RANDOMIZED_QUICKSELECT.md`
+- Finding: a fixed first-element pivot with our three-way partition is super-linear on sorted input (≈ n^1.5 measured) but not exactly quadratic. The classic Θ(n²) case needs a two-way first-pivot baseline, which goes into Phase 6.
+
 ## Open questions for the team
 1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)

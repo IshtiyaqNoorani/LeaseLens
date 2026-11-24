@@ -7,9 +7,9 @@ This file records who owns, wrote or reviewed each part, and is updated at the e
 | Area | Owner | Reviewer | Status |
 |---|---|---|---|
 | Phase 0 audit and plan | Shared | Shared | Approved 2026-11-24 |
-| Repository skeleton (Phase 1) | Ishtiyaq Noorani | Raakin Majeed | Done, pending review |
-| Segment Tree + tests | Raakin Majeed | Ishtiyaq Noorani | Planned (Phase 2) |
-| Randomized Quickselect + percentile + tests | Ishtiyaq Noorani | Raakin Majeed | Planned (Phase 2) |
+| Repository skeleton (Phase 1) | Ishtiyaq Noorani | Raakin Majeed | Done |
+| Segment Tree + tests | Raakin Majeed | Ishtiyaq Noorani | Done (Phase 2), committed by Raakin |
+| Randomized Quickselect + percentile + tests | Ishtiyaq Noorani | Raakin Majeed | Done (Phase 2), committed by Ishtiyaq |
 | Generator, ingestion and validation | Shared | Shared | Planned (Phase 3) |
 | Services and REST API | Shared | Shared | Planned (Phase 4) |
 | Frontend | Shared | Shared | Planned (Phase 5) |
