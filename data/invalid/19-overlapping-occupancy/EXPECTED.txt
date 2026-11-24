@@ -1,0 +1,2 @@
+OCCUPANCY_EXCEEDS_RENTABLE
+From 2026-02-01, L001 (1000) and L003 (1500) together exceed P001's 2000 sq ft.

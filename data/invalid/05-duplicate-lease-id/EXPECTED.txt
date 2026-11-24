@@ -1,0 +1,2 @@
+DUPLICATE_ID
+Lease L003 is renamed L002, duplicating an id.

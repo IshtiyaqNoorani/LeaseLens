@@ -1,0 +1,2 @@
+INVALID_AMOUNT
+Lease L001 has a monthly rent of -25000.00.

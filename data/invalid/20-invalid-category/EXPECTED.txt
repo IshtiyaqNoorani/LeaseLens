@@ -1,0 +1,2 @@
+INVALID_VALUE
+Expense E005 has category MISC.

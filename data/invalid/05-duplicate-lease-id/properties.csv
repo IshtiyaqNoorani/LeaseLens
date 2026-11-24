@@ -1,0 +1,3 @@
+property_id,property_name,property_type,location_zone,rentable_area_sqft,acquisition_value,total_units
+P001,Golden Residency,RESIDENTIAL,Zone A,2000,10000000.00,2
+P002,Golden Plaza,RETAIL,Zone B,3000,30000000.00,2

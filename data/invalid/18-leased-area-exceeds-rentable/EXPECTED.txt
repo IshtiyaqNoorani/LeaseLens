@@ -1,0 +1,2 @@
+LEASED_AREA_EXCEEDS_RENTABLE
+Lease L002 covers 5000 sq ft of a 3000 sq ft property.

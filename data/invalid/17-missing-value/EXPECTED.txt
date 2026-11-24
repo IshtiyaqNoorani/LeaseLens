@@ -1,0 +1,2 @@
+MISSING_VALUE
+Property P001 has a blank rentable_area_sqft.

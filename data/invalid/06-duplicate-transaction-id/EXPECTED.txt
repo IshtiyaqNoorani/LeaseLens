@@ -1,0 +1,2 @@
+DUPLICATE_ID
+Transaction TX008 is renamed TX007.

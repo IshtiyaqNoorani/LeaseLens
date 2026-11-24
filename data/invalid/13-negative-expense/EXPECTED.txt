@@ -1,0 +1,2 @@
+INVALID_AMOUNT
+Expense E003 has an amount of -12000.00.

@@ -1,0 +1,2 @@
+MISSING_COLUMN
+leases.csv has no monthly_rent column.

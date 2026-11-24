@@ -1,0 +1,2 @@
+RECONCILIATION_MISMATCH
+Obligation O005 declares amount_paid 100000.00 but its transactions total 120000.00.

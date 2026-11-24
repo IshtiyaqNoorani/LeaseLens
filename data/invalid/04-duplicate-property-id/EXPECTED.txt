@@ -1,0 +1,2 @@
+DUPLICATE_ID
+P001 appears twice in properties.csv.

@@ -1,0 +1,4 @@
+lease_id,property_id,tenant_id,start_date,end_date,monthly_rent,leased_area_sqft,billing_day,status
+L001,P001,T001,2025-07-01,2026-06-30,25000.00,1000,1,ACTIVE
+L002,P002,T002,2025-10-01,2027-09-30,120000.00,2000,5,ACTIVE
+L003,P001,T003,2026-02-01,2025-01-31,30000.00,1000,1,ACTIVE

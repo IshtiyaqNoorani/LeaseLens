@@ -1,0 +1,2 @@
+EMPTY_FILE
+properties.csv is completely empty.
