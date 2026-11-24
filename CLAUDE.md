@@ -31,5 +31,6 @@ PROJECT_PLAN.md · REQUIREMENTS_TRACEABILITY.md · DECISIONS.md · PROGRESS.md �
 - Backend build + all tests: `./mvnw verify`
 - Run API (port 8090; 8080 is taken by another app on Ishtiyaq's Mac): `./mvnw -DskipTests package && java -jar leaselens-api/target/leaselens-api.jar`
 - Regenerate sample data (byte-identical): `java -jar leaselens-generator/target/leaselens-generator.jar sample`; fixtures: `... fixtures` (after `./mvnw -DskipTests package`). Any generator change requires regenerating and committing `data/sample` (a test enforces it).
+- Golden values: `data/golden/EXPECTED.md` is the hand-computed truth; `GoldenKpiTest` must keep matching it exactly.
 - Frontend: `cd frontend && npm ci && npm run dev` (port 5173, proxies `/api` to 8090); `npm run build`; `npm run lint`
 - If npm fails with EACCES on `~/.npm`, the user's npm cache has root-owned files. Use `npm_config_cache=<scratchpad>/npm-cache` and never run sudo.

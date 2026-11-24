@@ -11,7 +11,7 @@ This file records who owns, wrote or reviewed each part, and is updated at the e
 | Segment Tree + tests | Raakin Majeed | Ishtiyaq Noorani | Done (Phase 2), committed by Raakin |
 | Randomized Quickselect + percentile + tests | Ishtiyaq Noorani | Raakin Majeed | Done (Phase 2), committed by Ishtiyaq |
 | Generator, ingestion and validation | Shared | Shared | Done (Phase 3), committed jointly with co-author trailers |
-| Services and REST API | Shared | Shared | Planned (Phase 4) |
+| Services and REST API (cash-flow service: Raakin; payment service: Ishtiyaq; rest shared) | Shared | Shared | Done (Phase 4), committed with co-author trailers |
 | Frontend | Shared | Shared | Planned (Phase 5) |
 | Benchmarks: segment tree / quickselect | Raakin / Ishtiyaq | Each other | Planned (Phase 6) |
 | Python EDA | Ishtiyaq Noorani | Raakin Majeed | Planned (Phase 7) |

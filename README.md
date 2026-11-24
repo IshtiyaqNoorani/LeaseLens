@@ -3,7 +3,7 @@
 Rental portfolio cash-flow and payment-behaviour analytics, built on a hand-written **Segment Tree** and **Randomized Quickselect** in Java.
 CIA 3 Advanced Algorithm project: Raakin Majeed (2404537), Ishtiyaq Noorani (2408912).
 
-> Status: **Phase 3 complete.** Algorithms, data generation and validation are built and tested. The REST analytics and screens come in Phases 4–5. See [PROGRESS.md](PROGRESS.md).
+> Status: **Phase 4 complete.** Algorithms, data, validation and the REST analytics API are built and tested. The screens come in Phase 5. See [PROGRESS.md](PROGRESS.md).
 
 ## Prerequisites
 | Tool | Version | Check |
@@ -50,9 +50,19 @@ java -jar leaselens-generator/target/leaselens-generator.jar fixtures
 ```
 Other seeds or sizes: `sample --seed 7 --properties 200 --months 60 --out /tmp/big`.
 
-## API example
+## API examples
+The sample dataset is loaded automatically when the backend starts.
 ```bash
-curl http://localhost:8090/api/health
+curl http://localhost:8090/api/portfolio/overview
+curl "http://localhost:8090/api/properties/performance?sort=collectionEfficiencyPct&order=asc"
+curl "http://localhost:8090/api/cashflow/range?scope=portfolio&from=2025-04-01&to=2026-03-31"
+curl "http://localhost:8090/api/payments/percentiles?p=50,75,90&propertyType=RETAIL&seed=1"
+curl -X POST http://localhost:8090/api/cashflow/adjustments -H "Content-Type: application/json" -d '{"propertyId":"P012","date":"2025-07-14","amountPaise":150000,"reason":"Reversed duplicate utility charge"}'
+curl -X POST "http://localhost:8090/api/datasets/sample?name=golden"
+```
+Upload your own six CSV files:
+```bash
+curl -F files=@properties.csv -F files=@tenants.csv -F files=@leases.csv -F files=@rent_obligations.csv -F files=@rent_transactions.csv -F files=@expenses.csv http://localhost:8090/api/datasets/upload
 ```
 Full contract: [docs/api/API_CONTRACT.md](docs/api/API_CONTRACT.md)
 

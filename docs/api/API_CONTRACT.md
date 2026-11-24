@@ -2,7 +2,7 @@
 
 Base URL: `http://localhost:8090/api`. In development the frontend calls `/api/...` through the Vite proxy.
 Status: **contract frozen for Phase 4 implementation.** Changes after this point are recorded in DECISIONS.md.
-Implemented today: `GET /api/health` only.
+Implemented (Phase 4): every endpoint below except the Algorithm Lab, which comes in Phase 6. Each one is covered by `ApiIntegrationTest`.
 
 ## Conventions
 - JSON, UTF-8. Dates are ISO-8601 (`2026-10-31`). Inclusive date ranges `from..to`.
@@ -30,8 +30,8 @@ Implemented today: `GET /api/health` only.
 ## Datasets
 | Method | Path | Body / params | Response |
 |---|---|---|---|
-| POST | `/datasets/sample` | none | `200 DatasetSummary` |
-| POST | `/datasets/upload` | multipart: `properties`, `tenants`, `leases`, `rent_obligations`, `rent_transactions`, `expenses` (CSV files) | `200 DatasetSummary` (with warnings) or `422 ValidationReport` |
+| POST | `/datasets/sample?name=sample\|golden` | none | `200 DatasetSummary`. Both datasets are bundled in the jar; `sample` is also loaded at start-up unless `leaselens.autoload-sample=false` |
+| POST | `/datasets/upload` | multipart: the six CSVs, each matched by file name (`leases.csv`) or form field name (`leases`) | `200 DatasetSummary` (with warnings) or `422` problem whose `validation` property holds the `ValidationReport`. **On 422 the previous dataset stays loaded.** |
 | GET | `/datasets/current` | none | `200 DatasetSummary` or `409` |
 | PUT | `/datasets/current/analysis-date` | `{"analysisDate":"2026-10-31"}` | `200 DatasetSummary` (must be within horizon) |
 
@@ -56,7 +56,9 @@ Implemented today: `GET /api/health` only.
 ## Portfolio and properties
 `GET /portfolio/overview?from&to` → KPI block (PROJECT_PLAN §6.1), each as `{ "value": ..., "unit": "paise|pct|sqft|count", "basis": "cash|accrual|cohort|physical", "formulaId": "COLLECTION_EFFICIENCY" }`, plus `receivablesAgeing` buckets, `monthlyTrend[]` and `attention[]` (`{propertyId, rule, observed, threshold, message}`).
 
-`GET /properties/performance?from&to&sort=collectionEfficiencyPct&order=asc` → `{ rows: [ { propertyId, name, type, zone, rentBilledPaise, rentCollectedPaise, collectionEfficiencyPct, occupancyPct, rentPerSqftPaise, expenseRatioPct, netOperatingCashSurplusPaise, cashYieldPct, vacancyDays, outstandingPaise } ] }`
+`GET /properties/performance?from&to&sort=collectionEfficiencyPct&order=asc` → `{ count, rows: [ { propertyId, name, type, zone, rentableAreaSqft, rentBilledPaise, rentCollectedPaise, cohortPaidPaise, collectionEfficiencyPct, cashToBillingPct, leasedAreaSqft, occupancyPct, timeWeightedOccupancyPct, vacantAreaDays, contractRentMonthlyPaise, rentPerSqftRupees, operatingExpensesPaise, netOperatingCashSurplusPaise, expenseRatioPct, cashYieldPct, outstandingPaise, maxDaysOverdue, longOverduePaise } ] }`. Unknown sort keys give 400. Null ratios (zero denominator) always sort last.
+
+Cash yield = net operating cash surplus × 365 / days in period ÷ acquisition value. It is not a cap rate.
 
 `GET /properties/{id}` → property detail with leases and monthly series.
 
@@ -79,7 +81,9 @@ Implemented today: `GET /api/health` only.
 { "propertyId": "P012", "date": "2025-07-14", "amountPaise": 150000, "reason": "Duplicate utility payment reversed" }
 ```
 → `201 { "adjustmentId": "ADJ-0001", ..., "algorithm": { "operation": "pointUpdate", "timeComplexity": "O(log n)", "operations": 22 } }`. Updates the property tree and the portfolio tree.
-`GET /cashflow/adjustments` → list · `DELETE /cashflow/adjustments/{id}` → undo (inverse point update) · `DELETE /cashflow/adjustments` → reset all.
+`GET /cashflow/adjustments` → list · `DELETE /cashflow/adjustments/{id}` → undo (inverse point update) · `DELETE /cashflow/adjustments` → reset all (rebuilds the trees).
+
+**Scope of adjustments:** they correct the Cash-Flow Explorer's daily values only. Source CSVs and Overview KPIs are unchanged, and every range response reports `adjustmentsApplied`.
 
 ## Payment Behaviour (Randomized Quickselect)
 `GET /payments/percentiles?p=50,75,90&propertyId&propertyType&from&to&seed=20261124`
@@ -98,8 +102,11 @@ Implemented today: `GET /api/health` only.
 
 ## Expenses
 `GET /expenses/summary?from&to&propertyId` → by category, by property, monthly trend, expense-to-rent ratio.
-`GET /expenses/unusual?from&to` → records above Q3 + 1.5·IQR within property × category: `{ expenseId, propertyId, category, date, amountPaise, q1Paise, q3Paise, upperFencePaise }`. Labelled "unusual compared with history", never "fraud".
+`GET /expenses/unusual?from&to&fence=3|1.5` → records above Q3 + k·IQR of the same property × category history (k = 3 by default, Tukey's "far out" fence; 1.5 is available). Groups with fewer than 8 records are skipped and counted. Quartiles come from Randomized Quickselect (fixed seed). Rows: `{ expenseId, propertyId, propertyName, category, date, amountPaise, q1Paise, q3Paise, upperFencePaise, timesTypical, groupSize }`. Labelled "unusual compared with history", never "fraud".
 
-## Algorithm Lab
+## As-of semantics
+Every date range must end on or before the analysis date. Balances, settled payments and occupancy are evaluated **as of** the analysis date, so payments recorded after it are ignored. `PUT /datasets/current/analysis-date` moves it within the horizon.
+
+## Algorithm Lab (Phase 6)
 `GET /benchmarks/results` → parsed rows from committed `benchmarks/results/*.csv`.
 `POST /benchmarks/run` `{ "suite": "SEGMENT_TREE|QUICKSELECT", "sizes": [1000,10000], "repetitions": 5, "seed": 1 }` → live run (sizes ≤ 100,000, repetitions ≤ 20). Results are labelled "live, indicative" and are not mixed with the committed results.

@@ -6,8 +6,8 @@ Source: `CIA3_Advanced_Algorithm_Project_Guidelines_2026-27.pdf` (§ = PDF secti
 |---|---|---|---|---|---|---|
 | R01 | §1, §2 | Group of 2–3 | Raakin Majeed (2404537), Ishtiyaq Noorani (2408912) | Proposal, report, CONTRIBUTIONS.md | Names and IDs on every deliverable | Planned |
 | R02 | §1 | Usable web application solving a genuine problem | Rental portfolio cash-flow and payment-behaviour analytics | App, proposal §problem | Demo | Planned |
-| R03 | §1, §7 | Algorithm central to behaviour, not decorative | Cash-Flow Explorer results come *only* from the segment tree; Payment Behaviour percentiles come *only* from quickselect | Service code paths; algorithm meta in API responses | Integration test asserts the service calls the algorithm; code walkthrough | Planned |
-| R04 | §2 | Core algorithms and business logic in Java | All KPIs, validation and algorithms in `leaselens-api` / `leaselens-algorithms` | Source | Review: frontend has no computation logic | Planned |
+| R03 | §1, §7 | Algorithm central to behaviour, not decorative | Cash-Flow Explorer results come *only* from the segment tree; Payment Behaviour percentiles come *only* from quickselect | `CashFlowService`/`CashFlowIndex`, `PaymentService` | `ApiIntegrationTest` asserts `algorithm.name` = SegmentTree / RandomizedQuickselect on real endpoints | Done (verified) |
+| R04 | §2 | Core algorithms and business logic in Java | All KPIs, validation and algorithms in `leaselens-api` / `leaselens-data` / `leaselens-algorithms` | Source | `GoldenKpiTest` verifies KPIs in Java; frontend to be reviewed in Phase 5 | In progress |
 | R05 | §2 | Frontend interacts with Java backend | React calls the REST API via the Vite proxy | `frontend/src/api` | Health check shown in UI (verified Phase 1) | In progress |
 | R06 | §2, §4 | ≥2 distinct syllabus techniques | Segment Tree (Unit 3); Randomized Selection (Unit 6) | `leaselens-algorithms` | Implemented and unit-tested (Phase 2); integration into app workflows pending (Phase 4) | In progress |
 | R07 | §2 | ≥1 technique from Units 4–6 | Randomized selection (Unit 6) | Proposal, report | **Written faculty confirmation of the Unit 6 mapping** | At risk (R1) |
@@ -16,7 +16,7 @@ Source: `CIA3_Advanced_Algorithm_Project_Guidelines_2026-27.pdf` (§ = PDF secti
 | R10 | §2, §6 | Own Java implementations; frameworks provide infrastructure only | Dependency-free algorithms module | `leaselens-algorithms/pom.xml` | Dependency check: no third-party runtime deps (module created Phase 1 with JUnit test scope only) | In progress |
 | R11 | §3 | Show how the method improves an analytical task | Interactive range analytics plus corrections; fast percentiles; measured against baselines | Lab, report | Benchmarks | Planned |
 | R12 | §5 | Upload data, configure parameters, execute, interpretable result | M0 upload; scope, date, percentile and seed controls; result panels with explanations | UI | Demo script steps | Planned |
-| R13 | §5 | Algorithm visibility | `algorithm` meta block shown in an algorithm panel on M3, M4 and M6 | API, UI | API tests check the meta fields | Planned |
+| R13 | §5 | Algorithm visibility | `algorithm` meta block on every algorithm-backed response | API (done), UI panel (Phase 5) | API tests check the meta fields | In progress |
 | R14 | §5 | Validation: empty, invalid, duplicates, domain edge cases; never silently wrong | 20-rule validation engine in `leaselens-data`; algorithm guards | `data/invalid/` (23 fixtures), ValidationReport | `InvalidFixturesTest` (one test per fixture) + `LoaderEdgeCasesTest` pass | Done (verified) |
 | R15 | §5 | ≥5 correctness tests per core algorithm incl. an edge case | 22 segment tree, 19 quickselect, 38 percentile; edge, invalid and stress cases included | JUnit | `./mvnw verify`: 79/79 pass (Phase 2) | Done (verified) |
 | R16 | §5 | Benchmarks at ≥3 increasing sizes | 1k / 10k / 100k (+1M optional) | `benchmarks/results/*.csv` | Committed CSVs | Planned |
@@ -32,7 +32,7 @@ Source: `CIA3_Advanced_Algorithm_Project_Guidelines_2026-27.pdf` (§ = PDF secti
 | R26 | §8E | README: prereqs, commands, env vars, API examples, dataset, screenshots | `README.md` | File | Fresh-clone test | Planned |
 | R27 | §10 | 8-minute demo: use case, algorithm results, failure handling, performance | Demo script | `docs/demo/DEMO_SCRIPT.md` | Timed rehearsal | Planned |
 | R28 | §10 | 2-minute individual viva: contribution, algorithm, correctness, complexity; modified inputs; method walkthrough | Per-member viva sheets; editable inputs in UI | `docs/viva/` | Mock viva | Planned |
-| R29 | §11 | Measurable success criteria | PROJECT_PLAN §5 criteria 1–6 | Proposal, report | Each criterion linked to a test or benchmark | Planned |
+| R29 | §11 | Measurable success criteria | PROJECT_PLAN §5 criteria 1–6 | Proposal, report | Criteria 1–4 verified by tests (Phases 2–4); 5 in Phase 6; 6 in Phase 8 | In progress |
 | R30 | §11 | Sound probabilistic behaviour | Seed studies, Las Vegas proof, fixed seeds in tests | Tests, `docs/algorithms/RANDOMIZED_QUICKSELECT.md` | Mean-comparison test, 1,000-seed differential test (pass) | In progress |
-| R31 | §11 | Backend quality: separation, validation, errors, maintainability | Layered modules, ProblemDetail, tests | Source | API tests | Planned |
+| R31 | §11 | Backend quality: separation, validation, errors, maintainability | Layered modules (web → service → store → data/algorithms), ProblemDetail errors, atomic snapshot swap | Source | 33 API-module tests pass | Done (verified) |
 | R32 | Brief | Python EDA (supplementary only) | `analytics/LeaseLens_EDA.ipynb` | Notebook | Runs top to bottom in a clean venv | Planned |

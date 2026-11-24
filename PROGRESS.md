@@ -37,6 +37,19 @@
 - Fixed during the phase: (1) the first sample had only 0.5% open obligations (99.3% collection efficiency), unrealistically clean, so short payments were added and it is now 3.5% open, 98.0% efficiency; (2) a first-lease term bug left 5 tenants without leases.
 - Moved to Phase 4: asserting KPI values against `EXPECTED.md`, since the KPI services are built there.
 
+## Phase 4: Java backend and REST APIs (complete, awaiting review)
+- [x] Store: immutable `Snapshot` (dataset, analysis date, payment `Ledger`) swapped atomically; `CashFlowIndex` = 51 Segment Trees (one per property and one for the portfolio) with an auditable adjustment ledger (add, undo, reset)
+- [x] Services: KPI overview and attention rules, property league table and detail, Cash-Flow Explorer (Segment Tree), Payment Behaviour (Randomized Quickselect), expenses with Tukey fences (quartiles via Quickselect), dataset load, upload and analysis date
+- [x] 20 REST endpoints, RFC 7807 errors (400, 404, 409, 422); a rejected upload keeps the previous dataset; sample and golden bundled in the jar; sample loaded at start-up
+- [x] Every algorithm-backed response includes an `algorithm` block (name, syllabus unit, operation, complexity, n, operation count, elapsed ns, seed)
+- [x] `GoldenKpiTest`: every value in `data/golden/EXPECTED.md` matches exactly (8 tests, about 70 assertions); `ApiIntegrationTest` (21), `NoDatasetTest`; **163 tests pass in total**
+- [x] Smoke test on the sample: a range query visits 37 nodes in about 0.15 ms; 4 percentiles over 3,918 delays take about 1 ms
+- Fixes and recalibration during the phase:
+  - Missing `-parameters` compiler flag made every endpoint return 400; fixed in the parent POM.
+  - The attention list flagged 33 of 50 properties because short payments were never recovered. The generator now recovers 75% of them, and the overdue rule uses the share of billing. Now 10 properties are flagged, including planted P005 and P008 and unplanted P010.
+  - Tukey 1.5×IQR flagged 150 skewed expense records; the default is now k = 3 (36 flagged), with 1.5 on request.
+  - Planted pattern 5 was strengthened so it survives random variation; the sample was regenerated and the spec updated.
+
 ## Open questions for the team
 1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)
