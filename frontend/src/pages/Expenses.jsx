@@ -51,7 +51,7 @@ export default function Expenses() {
                   <XAxis type="number" {...axisProps} tickFormatter={rupeesAxis} />
                   <YAxis type="category" dataKey="category" {...axisProps} width={110} tickFormatter={titleCase} />
                   <Tooltip content={<ChartTooltip formatLabel={(l) => titleCase(l)} formatValue={(x) => rupeesCompact(x)} />} cursor={{ fill: '#f1f5f9' }} />
-                  <Bar dataKey="paise" name="Amount" fill={SERIES[0]} maxBarSize={18} radius={[0, 4, 4, 0]} />
+                  <Bar isAnimationActive={false} dataKey="paise" name="Amount" fill={SERIES[0]} maxBarSize={18} radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -69,7 +69,7 @@ export default function Expenses() {
                 <XAxis dataKey="month" {...axisProps} minTickGap={24} />
                 <YAxis {...axisProps} tickFormatter={rupeesAxis} width={56} />
                 <Tooltip content={<ChartTooltip formatValue={(x) => rupeesCompact(x)} />} cursor={{ stroke: GRID }} />
-                <Line type="monotone" dataKey="totalPaise" name="Operating expenses" stroke={SERIES[0]} strokeWidth={2} dot={false} />
+                <Line isAnimationActive={false} type="monotone" dataKey="totalPaise" name="Operating expenses" stroke={SERIES[0]} strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </ChartCard>

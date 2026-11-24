@@ -137,9 +137,9 @@ function SegmentTreeSection({ rows }) {
               <XAxis dataKey="n" {...axisProps} />
               <YAxis scale="log" domain={['auto', 'auto']} allowDataOverflow {...axisProps} width={64} tickFormatter={micros} />
               <Tooltip content={<ChartTooltip formatLabel={(l) => `n = ${l}`} formatValue={micros} />} cursor={{ stroke: GRID }} />
-              <Line dataKey="tree" name="Segment Tree" stroke={SERIES[0]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
-              <Line dataKey="linear" name="Linear scan" stroke={SERIES[1]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
-              <Line dataKey="prefix" name="Prefix sums (sum only)" stroke={SERIES[2]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
+              <Line isAnimationActive={false} dataKey="tree" name="Segment Tree" stroke={SERIES[0]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
+              <Line isAnimationActive={false} dataKey="linear" name="Linear scan" stroke={SERIES[1]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
+              <Line isAnimationActive={false} dataKey="prefix" name="Prefix sums (sum only)" stroke={SERIES[2]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
             </LineChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -221,8 +221,8 @@ function QuickselectSection({ rows }) {
               <XAxis dataKey="n" {...axisProps} />
               <YAxis scale="log" domain={['auto', 'auto']} allowDataOverflow {...axisProps} width={64} tickFormatter={micros} />
               <Tooltip content={<ChartTooltip formatLabel={(l) => `n = ${l}`} formatValue={micros} />} cursor={{ stroke: GRID }} />
-              <Line dataKey="qs" name="Quickselect" stroke={SERIES[0]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
-              <Line dataKey="sort" name="Sort" stroke={SERIES[1]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
+              <Line isAnimationActive={false} dataKey="qs" name="Quickselect" stroke={SERIES[0]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
+              <Line isAnimationActive={false} dataKey="sort" name="Sort" stroke={SERIES[1]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
             </LineChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -251,8 +251,8 @@ function QuickselectSection({ rows }) {
               <XAxis dataKey="k" {...axisProps} label={{ value: 'number of percentiles (k)', position: 'insideBottom', offset: -2, fontSize: 11, fill: '#898781' }} />
               <YAxis {...axisProps} width={64} tickFormatter={micros} />
               <Tooltip content={<ChartTooltip formatLabel={(l) => `k = ${l}`} formatValue={micros} />} cursor={{ stroke: GRID }} />
-              <Line dataKey="qs" name="Quickselect" stroke={SERIES[0]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
-              <Line dataKey="sort" name="Sort" stroke={SERIES[1]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
+              <Line isAnimationActive={false} dataKey="qs" name="Quickselect" stroke={SERIES[0]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
+              <Line isAnimationActive={false} dataKey="sort" name="Sort" stroke={SERIES[1]} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: '#fff' }} />
             </LineChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -321,7 +321,7 @@ function SeedSection({ rows, histogram, seeds }) {
               <YAxis {...axisProps} width={40} allowDecimals={false} />
               <Tooltip content={<ChartTooltip formatLabel={(l) => `${l} to ${(Number(l) + 0.25).toFixed(2)} × n`} formatValue={(v) => `${v} runs`} />} cursor={{ fill: '#f1f5f9' }} />
               {refBin && <ReferenceLine x={refBin.label} stroke="#52514e" strokeDasharray="0" label={{ value: '≈3.39n', position: 'top', fontSize: 11, fill: '#52514e' }} />}
-              <Bar dataKey="runs" name="Runs" fill={SERIES[0]} maxBarSize={24} radius={[4, 4, 0, 0]} />
+              <Bar isAnimationActive={false} dataKey="runs" name="Runs" fill={SERIES[0]} maxBarSize={24} radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>

@@ -71,9 +71,9 @@ export default function PropertyDetail() {
                 <XAxis dataKey="month" {...axisProps} minTickGap={24} />
                 <YAxis {...axisProps} tickFormatter={rupeesAxis} width={56} />
                 <Tooltip content={<ChartTooltip formatValue={(v) => rupeesCompact(v)} />} cursor={{ stroke: GRID }} />
-                <Line type="monotone" dataKey="rentBilledPaise" name="Rent billed" stroke={SERIES[0]} strokeWidth={2} dot={false} />
-                <Line type="monotone" dataKey="rentCollectedPaise" name="Rent collected" stroke={SERIES[1]} strokeWidth={2} dot={false} />
-                <Line type="monotone" dataKey="operatingExpensesPaise" name="Operating expenses" stroke={SERIES[2]} strokeWidth={2} dot={false} />
+                <Line isAnimationActive={false} type="monotone" dataKey="rentBilledPaise" name="Rent billed" stroke={SERIES[0]} strokeWidth={2} dot={false} />
+                <Line isAnimationActive={false} type="monotone" dataKey="rentCollectedPaise" name="Rent collected" stroke={SERIES[1]} strokeWidth={2} dot={false} />
+                <Line isAnimationActive={false} type="monotone" dataKey="operatingExpensesPaise" name="Operating expenses" stroke={SERIES[2]} strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </ChartCard>

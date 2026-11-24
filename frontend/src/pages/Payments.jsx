@@ -145,7 +145,7 @@ export default function Payments() {
               <XAxis dataKey="label" {...axisProps} />
               <YAxis {...axisProps} width={44} allowDecimals={false} />
               <Tooltip content={<ChartTooltip formatLabel={(l) => `${l} days late`} formatValue={(x) => number(x)} />} cursor={{ fill: '#f1f5f9' }} />
-              <Bar dataKey="count" name="Payments" maxBarSize={24} radius={[4, 4, 0, 0]}>
+              <Bar isAnimationActive={false} dataKey="count" name="Payments" maxBarSize={24} radius={[4, 4, 0, 0]}>
                 {(t?.histogram ?? []).map((b) => (
                   <Cell key={b.label} fill={t && binStart(b.label) >= t.thresholdDaysLate && t.thresholdDaysLate > 0 ? SERIES[1] : SERIES[0]} />
                 ))}
@@ -218,7 +218,7 @@ export default function Payments() {
                 <XAxis dataKey="bucket" {...axisProps} />
                 <YAxis {...axisProps} tickFormatter={rupeesAxis} width={56} />
                 <Tooltip content={<ChartTooltip formatLabel={(l) => `${l} days overdue`} formatValue={(x) => rupeesCompact(x)} />} cursor={{ fill: '#f1f5f9' }} />
-                <Bar dataKey="paise" name="Balance" fill={SERIES[0]} maxBarSize={24} radius={[4, 4, 0, 0]} />
+                <Bar isAnimationActive={false} dataKey="paise" name="Balance" fill={SERIES[0]} maxBarSize={24} radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </ChartCard>

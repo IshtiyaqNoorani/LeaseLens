@@ -107,7 +107,7 @@ export default function Properties() {
                   ) : null
                 }
               />
-              <Scatter data={rows.filter((r) => r.collectionEfficiencyPct !== null && r.timeWeightedOccupancyPct !== null)} fill={SERIES[0]} stroke="#ffffff" strokeWidth={2} onClick={(p) => navigate(`/properties/${p.propertyId}`)} />
+              <Scatter isAnimationActive={false} data={rows.filter((r) => r.collectionEfficiencyPct !== null && r.timeWeightedOccupancyPct !== null)} fill={SERIES[0]} stroke="#ffffff" strokeWidth={2} onClick={(p) => navigate(`/properties/${p.propertyId}`)} />
             </ScatterChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -155,7 +155,7 @@ export default function Properties() {
                   ) : null
                 }
               />
-              <Bar dataKey="netOperatingCashSurplusPaise" name="Net surplus" maxBarSize={24} radius={[0, 4, 4, 0]} fill={POS}
+              <Bar isAnimationActive={false} dataKey="netOperatingCashSurplusPaise" name="Net surplus" maxBarSize={24} radius={[0, 4, 4, 0]} fill={POS}
                 shape={(props) => <rect x={props.x} y={props.y} width={Math.max(props.width, 0)} height={props.height} rx={4} fill={props.value < 0 ? NEG : POS} />} />
             </BarChart>
           </ResponsiveContainer>

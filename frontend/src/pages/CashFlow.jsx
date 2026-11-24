@@ -194,7 +194,7 @@ export default function CashFlow() {
                 <YAxis {...axisProps} tickFormatter={rupeesAxis} width={56} />
                 <ReferenceLine y={0} stroke="#c3c2b7" />
                 <Tooltip content={<ChartTooltip formatValue={(v) => rupeesCompact(v)} />} cursor={{ fill: '#f1f5f9' }} />
-                <Bar dataKey="netCashFlowPaise" name="Net cash flow" maxBarSize={24} radius={[4, 4, 0, 0]}>
+                <Bar isAnimationActive={false} dataKey="netCashFlowPaise" name="Net cash flow" maxBarSize={24} radius={[4, 4, 0, 0]}>
                   {(periods.data?.periods ?? []).map((p) => (
                     <Cell key={p.label} fill={p.netCashFlowPaise < 0 ? NEG : POS} />
                   ))}

@@ -78,9 +78,9 @@ export default function Overview() {
                   <XAxis dataKey="month" {...axisProps} minTickGap={24} />
                   <YAxis {...axisProps} tickFormatter={rupeesAxis} width={56} />
                   <Tooltip content={<ChartTooltip formatValue={(v) => rupeesCompact(v)} />} cursor={{ stroke: GRID }} />
-                  <Line type="monotone" dataKey="rentBilledPaise" name="Rent billed" stroke={SERIES[0]} strokeWidth={2} dot={false} />
-                  <Line type="monotone" dataKey="rentCollectedPaise" name="Rent collected" stroke={SERIES[1]} strokeWidth={2} dot={false} />
-                  <Line type="monotone" dataKey="operatingExpensesPaise" name="Operating expenses" stroke={SERIES[2]} strokeWidth={2} dot={false} />
+                  <Line isAnimationActive={false} type="monotone" dataKey="rentBilledPaise" name="Rent billed" stroke={SERIES[0]} strokeWidth={2} dot={false} />
+                  <Line isAnimationActive={false} type="monotone" dataKey="rentCollectedPaise" name="Rent collected" stroke={SERIES[1]} strokeWidth={2} dot={false} />
+                  <Line isAnimationActive={false} type="monotone" dataKey="operatingExpensesPaise" name="Operating expenses" stroke={SERIES[2]} strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -104,7 +104,7 @@ export default function Overview() {
                   <XAxis dataKey="bucket" {...axisProps} />
                   <YAxis {...axisProps} tickFormatter={rupeesAxis} width={56} />
                   <Tooltip content={<ChartTooltip formatValue={(v) => rupeesCompact(v)} formatLabel={(l) => `${l} days overdue`} />} cursor={{ fill: '#f1f5f9' }} />
-                  <Bar dataKey="paise" name="Balance" fill={SERIES[0]} maxBarSize={24} radius={[4, 4, 0, 0]} />
+                  <Bar isAnimationActive={false} dataKey="paise" name="Balance" fill={SERIES[0]} maxBarSize={24} radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </ChartCard>
