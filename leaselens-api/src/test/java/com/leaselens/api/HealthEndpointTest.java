@@ -27,6 +27,14 @@ class HealthEndpointTest {
     }
 
     @Test
+    void sampleIsLoadedAtStartup() throws Exception {
+        mockMvc.perform(get("/api/datasets/current"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.source").value("sample"))
+                .andExpect(jsonPath("$.counts.properties").value(50));
+    }
+
+    @Test
     void unknownEndpointReturnsProblemDetail() throws Exception {
         mockMvc.perform(get("/api/does-not-exist"))
                 .andExpect(status().isNotFound())

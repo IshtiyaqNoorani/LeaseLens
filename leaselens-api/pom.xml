@@ -45,6 +45,17 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+            <!-- Bundle the committed datasets so "load sample" works from any working directory. -->
+            <resource>
+                <directory>../data/sample</directory>
+                <targetPath>datasets/sample</targetPath>
+                <includes><include>*.csv</include></includes>
+            </resource>
+            <resource>
+                <directory>../data/golden</directory>
+                <targetPath>datasets/golden</targetPath>
+                <includes><include>*.csv</include></includes>
+            </resource>
         </resources>
         <plugins>
             <plugin>

@@ -50,8 +50,7 @@ A deliberately tiny dataset whose every figure can be checked with a calculator.
 | Time-weighted occupancy | 149,000 / 180,000 = 82.78% | 180,000 / 270,000 = 66.67% |
 | Vacant area-days | 31,000 | 90,000 |
 | Rent per sq ft | 55,000 / 2,000 = ₹27.50 | 1,20,000 / 2,000 = ₹60.00 |
-
-Cash yield is excluded until Phase 4 fixes the annualisation convention.
+| Cash yield (surplus × 365/90 ÷ acquisition value) | 85,000 × 365/90 = 3,44,722 ÷ 1,00,00,000 = **3.45%** | 2,50,000 × 365/90 = 10,13,889 ÷ 3,00,00,000 = **3.38%** |
 
 ## 4. Payment delays (Randomized Quickselect)
 - Completed obligations: 6 (O001, O002, O003, O004, O005, O007). Open obligations excluded: 2 (O006, O008). On time or early: 2.
