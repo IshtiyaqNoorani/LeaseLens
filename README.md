@@ -3,7 +3,7 @@
 Rental portfolio cash-flow and payment-behaviour analytics, built on a hand-written **Segment Tree** and **Randomized Quickselect** in Java.
 CIA 3 Advanced Algorithm project: Raakin Majeed (2404537), Ishtiyaq Noorani (2408912).
 
-> Status: **Phase 5 complete.** The full application works end to end: open http://localhost:5173 after starting both servers. Benchmarks (Phase 6) and the Python EDA (Phase 7) come next. See [PROGRESS.md](PROGRESS.md).
+> Status: **Phase 6 complete.** The full application works end to end (http://localhost:5173 after starting both servers), with measured benchmarks in the Algorithm Lab. The Python EDA (Phase 7) comes next. See [PROGRESS.md](PROGRESS.md).
 
 ## Prerequisites
 | Tool | Version | Check |
@@ -50,6 +50,13 @@ java -jar leaselens-generator/target/leaselens-generator.jar fixtures
 ```
 Other seeds or sizes: `sample --seed 7 --properties 200 --months 60 --out /tmp/big`.
 
+## Benchmarks
+```bash
+./mvnw -q -DskipTests package
+java -Xms1g -Xmx1g -jar leaselens-bench/target/leaselens-bench-cli.jar --suite all --sizes 1000,10000,100000 --reps 20 --warmup 10 --seed 42 --seeds 1000
+```
+Writes `benchmarks/results/*.csv` in about 30 s. Method, results and findings: [benchmarks/BENCHMARKS.md](benchmarks/BENCHMARKS.md).
+
 ## API examples
 The sample dataset is loaded automatically when the backend starts.
 ```bash
@@ -73,7 +80,8 @@ Full contract: [docs/api/API_CONTRACT.md](docs/api/API_CONTRACT.md)
 | `leaselens-data/` | Domain model, CSV parser, validation rules, dataset loader |
 | `leaselens-generator/` | Seeded synthetic data generator and invalid-fixture builder |
 | `leaselens-api/` | Spring Boot REST API |
-| `leaselens-bench/` | Benchmark harness (Phase 6) |
+| `leaselens-bench/` | Benchmark harness, baselines and suites |
+| `benchmarks/` | Committed benchmark results (CSV) and BENCHMARKS.md |
 | `frontend/` | React + Vite + Tailwind + Recharts |
 | `analytics/` | Python EDA notebook (Phase 7) |
 | `data/` | Sample, invalid-fixture and golden datasets |

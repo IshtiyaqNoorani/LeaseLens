@@ -58,6 +58,14 @@
 - [x] Browser-verified: Overview, Properties, Cash-Flow correction then undo (22 nodes touched; header badge updates), Payments new-seed runs (same percentiles; 14,278 / 23,606 / 18,310 comparisons), Expenses, invalid upload (OCCUPANCY_EXCEEDS_RENTABLE shown with line and column; previous data kept). The only console error is the expected 422.
 - Fixes during the phase: `Input`/`Select` dropped their base styles when given a `className`; before/after tiles now show full rupee amounts (compact figures hid the change); removed two client-side derived numbers so the frontend computes nothing analytical.
 
+## Phase 6: Benchmarking and performance evaluation (complete, awaiting review)
+- [x] `leaselens-bench`: harness (10 warm-ups, 20 timed reps, medians and IQR, sub-millisecond batching, volatile sink), seeded inputs, labelled baselines (linear scan, prefix sums, `Arrays.sort`, textbook two-way quickselect), answers verified before timing (6 tests)
+- [x] Committed results `benchmarks/results/{segment_tree,quickselect,seed_study,seed_histogram}.csv` at n = 1,000 / 10,000 / 100,000: 168 timed measurements all verified, plus 12,000 seeded selections all correct. Runtime about 30 s
+- [x] `benchmarks/BENCHMARKS.md`: method, 7 result tables generated from the CSVs, 12 findings with the conditions where each method wins or loses, and threats to validity
+- [x] API `GET /api/benchmarks/results` (bundled CSVs plus ratios to the assessed method) and bounded `POST /api/benchmarks/run` (one at a time, n ≤ 100k, ≤ 10 reps); +2 API tests
+- [x] Algorithm Lab screen: environment, Segment Tree charts and tables by correction share and range length, build cost, quickselect vs sort by input shape, k-percentile crossover, pivot and partition table, seed-study table and histogram, live-run panel. Browser-verified
+- Honest findings for the report: a scan beats the tree on short ranges; prefix sums beat it for sum-only queries with rare corrections; the JDK sort beats quickselect on presorted data and, for LeaseLens's 3 percentiles on delay data, a single sort would be as fast or faster
+
 ## Open questions for the team
 1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)

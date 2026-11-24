@@ -82,6 +82,12 @@ Selecting the maximum of sorted input `0..n−1`, counting comparisons with `Ope
 
 Hypothesis (to be measured): for k percentiles, k quickselects cost about k·c·n and one sort costs about n log n, so there is a crossover k beyond which sorting once is cheaper.
 
+**Measured (Phase 6, `benchmarks/BENCHMARKS.md`):**
+- One P90 on uniform data: quickselect is 1.5× (1k), 5.9× (10k) and 10.8× (100k) faster than a full sort.
+- The JDK sort wins on presorted or identical input, and roughly ties on duplicate-heavy delay data.
+- For several percentiles, one sort wins from about k = 5–9 (uniform) or k = 3 (delays). LeaseLens's own 3 percentiles on about 3,900 delays fall on the sort side, and the report states this.
+- Over 1,000 seeds, the mean number of comparisons for the median was 3.31n–3.43n, against 3.39n in theory. Every run was correct.
+
 ## 7. Limitation that matters for the business result
 Only **completed** payments enter the distribution. Obligations still open at the analysis date are excluded, and those are typically the latest payers. That **right-censoring** biases the percentiles downward. The UI and report therefore show `completed` and `open (excluded)` counts next to every percentile.
 

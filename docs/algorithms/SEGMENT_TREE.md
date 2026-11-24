@@ -79,6 +79,12 @@ Hypotheses to test (not results):
 - A scan should be competitive for very short ranges or very few queries.
 - The segment tree should win when there are many min/max queries over long ranges, mixed with corrections.
 
+**Measured (Phase 6, `benchmarks/BENCHMARKS.md`):** all three hypotheses held.
+- Prefix sums were 20–70× faster for sum-only queries with no corrections.
+- The linear scan was 3–10× faster for ranges of 32 days or fewer.
+- The tree was about 40× faster than a scan at 100,000 for long ranges, and 1.4–7.9× faster than prefix sums once 10–50% of operations were corrections.
+- Building the tree costs 4–27× more than building a prefix array.
+
 ## 7. Test evidence (`SegmentTreeTest`)
 Single element · complete range · partial range · first and last boundaries · ties resolve to the earliest index · all-negative values · point update · repeated updates on one index · input copied · 5 invalid ranges · 3 invalid update indices · empty and null input · overflow detection with rollback · **differential test: 5 seeds × 10,000 mixed operations against a brute-force scan** · node-visit bound for queries · path-length bound for updates.
 

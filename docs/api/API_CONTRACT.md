@@ -107,6 +107,6 @@ Cash yield = net operating cash surplus × 365 / days in period ÷ acquisition v
 ## As-of semantics
 Every date range must end on or before the analysis date. Balances, settled payments and occupancy are evaluated **as of** the analysis date, so payments recorded after it are ignored. `PUT /datasets/current/analysis-date` moves it within the horizon.
 
-## Algorithm Lab (Phase 6)
+## Algorithm Lab (implemented in Phase 6)
 `GET /benchmarks/results` → parsed rows from committed `benchmarks/results/*.csv`.
 `POST /benchmarks/run` `{ "suite": "SEGMENT_TREE|QUICKSELECT", "sizes": [1000,10000], "repetitions": 5, "seed": 1 }` → live run (sizes ≤ 100,000, repetitions ≤ 20). Results are labelled "live, indicative" and are not mixed with the committed results.
