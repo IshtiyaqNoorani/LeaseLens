@@ -17,15 +17,15 @@
 - [x] Frontend: React 19 + Vite 8 + Tailwind 4 + Recharts + React Router; app shell with 8 module routes and live backend status; build and lint pass
 - [x] Verified end to end: browser → Vite proxy → Java API (health) and a 404 returned as `application/problem+json`
 - [x] API contract `docs/api/API_CONTRACT.md`; proposal draft `docs/proposal/PROPOSAL.md`; CONTRIBUTIONS.md; README
-- [ ] First commit (waiting for each member's Git name and email)
+- [x] Committed: `4bd8daa` (Phase 0 docs), `4797217` (Phase 1 foundation)
 
 ## Open questions for the team
-1. Git identity (name and email) for each member's commits.
+1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)
 3. Which course week is it now, and what are the proposal and final-review dates?
 4. CO1–CO5 definitions from the course file.
 5. Does the course allow AI-assisted development, and is there a disclosure requirement?
-6. Confirm ownership split (Raakin: Segment Tree; Ishtiyaq: Quickselect) and each member's Git identity.
+6. Confirm ownership split (Raakin: Segment Tree; Ishtiyaq: Quickselect).
 
 ## Environment observed (Ishtiyaq's machine, 2026-11-24)
 JDK 24.0.2, Maven 3.9.14, Node 24.16.0, Python 3 present. Port 8080 is in use by another local Java app, so LeaseLens uses 8090.

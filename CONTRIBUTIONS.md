@@ -18,3 +18,13 @@ This file records who owns, wrote or reviewed each part, and is updated at the e
 | Report, README, demo, viva prep | Shared | Shared | Planned (Phase 9) |
 
 Ownership is proposed and must be confirmed by both members.
+
+## Git identities
+| Member | Git author |
+|---|---|
+| Raakin Majeed | `Raakin Majeed <raakincodes@gmail.com>` |
+| Ishtiyaq Noorani | `Ishtiyaq Noorani <ishtiyaqnoorani1919@gmail.com>` |
+
+This repository's local Git config defaults to Ishtiyaq, because the repository is on Ishtiyaq's machine. When Raakin commits work Raakin did or reviewed from this machine, use:
+`git commit --author="Raakin Majeed <raakincodes@gmail.com>"`
+For genuinely joint work, add the trailer `Co-Authored-By: Raakin Majeed <raakincodes@gmail.com>`.
