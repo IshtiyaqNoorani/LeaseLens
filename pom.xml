@@ -49,6 +49,11 @@
             </dependency>
             <dependency>
                 <groupId>com.leaselens</groupId>
+                <artifactId>leaselens-bench</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.leaselens</groupId>
                 <artifactId>leaselens-generator</artifactId>
                 <version>${project.version}</version>
             </dependency>

@@ -27,7 +27,30 @@
     </dependencies>
 
     <build>
+        <finalName>leaselens-bench</finalName>
         <plugins>
+            <plugin>
+                <!-- Self-contained runnable jar (bench classes + the algorithms module). -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <!-- Separate file: the module's normal jar stays thin for use by the API. -->
+                            <outputFile>${project.build.directory}/leaselens-bench-cli.jar</outputFile>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.leaselens.bench.BenchmarkCli</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
