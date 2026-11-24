@@ -27,6 +27,16 @@
 - [x] Pseudocode, correctness proofs and complexity notes: `docs/algorithms/SEGMENT_TREE.md`, `docs/algorithms/RANDOMIZED_QUICKSELECT.md`
 - Finding: a fixed first-element pivot with our three-way partition is super-linear on sorted input (≈ n^1.5 measured) but not exactly quadratic. The classic Θ(n²) case needs a two-way first-pivot baseline, which goes into Phase 6.
 
+## Phase 3: Synthetic data, ingestion and validation (complete, awaiting review)
+- [x] New module `leaselens-data` (plain Java): domain model, hand-written RFC 4180 CSV parser, 20 validation rules, `DatasetLoader` (file → row → cross-file checks, including a sweep-line occupancy check and payment reconciliation). Never returns a partial dataset; issue list capped at 1,000.
+- [x] Golden dataset `data/golden` with hand-computed KPIs, percentiles and segment-tree answers in `EXPECTED.md`
+- [x] Seeded generator (`sample` command): 50 properties, 248 leases, 3,980 obligations, 4,194 transactions, 9,699 expenses over 1,096 days; byte-identical for the same seed; 0 errors and 0 warnings on validation
+- [x] Five planted patterns plus a negative control, documented with measured values in `data/GENERATOR_SPEC.md`
+- [x] 23 invalid-data fixtures (`fixtures` command) in `data/invalid`, each rejected with the expected rule
+- [x] 132 tests pass across the project (51 new: data 40, generator 11)
+- Fixed during the phase: (1) the first sample had only 0.5% open obligations (99.3% collection efficiency), unrealistically clean, so short payments were added and it is now 3.5% open, 98.0% efficiency; (2) a first-lease term bug left 5 tenants without leases.
+- Moved to Phase 4: asserting KPI values against `EXPECTED.md`, since the KPI services are built there.
+
 ## Open questions for the team
 1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)
