@@ -3,7 +3,7 @@
 Rental portfolio cash-flow and payment-behaviour analytics, built on a hand-written **Segment Tree** and **Randomized Quickselect** in Java.
 CIA 3 Advanced Algorithm project: Raakin Majeed (2404537), Ishtiyaq Noorani (2408912).
 
-> Status: **Phase 4 complete.** Algorithms, data, validation and the REST analytics API are built and tested. The screens come in Phase 5. See [PROGRESS.md](PROGRESS.md).
+> Status: **Phase 5 complete.** The full application works end to end: open http://localhost:5173 after starting both servers. Benchmarks (Phase 6) and the Python EDA (Phase 7) come next. See [PROGRESS.md](PROGRESS.md).
 
 ## Prerequisites
 | Tool | Version | Check |

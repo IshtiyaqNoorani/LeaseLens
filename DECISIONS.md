@@ -38,3 +38,6 @@ Phase 0 decisions approved by the team on 2026-11-24.
 | D-031 | Accepted (Phase 4) | Unusual-expense fence k = 3 by default (Tukey "far out"), 1.5 optional; groups smaller than 8 skipped | Money amounts are right-skewed: k = 1.5 flagged 150 records, k = 3 flags 36 and keeps the planted outliers at the top |
 | D-032 | Accepted (Phase 4) | Compile with `-parameters` | Spring MVC needs parameter names to bind request parameters; without it every endpoint returned 400 |
 | D-033 | Accepted (Phase 4) | A zero denominator gives `null` (shown as "n/a"), never 0 | A ratio of nothing is undefined, not zero |
+| D-034 | Accepted (Phase 5) | Chart conventions from the dataviz method: validated reference palette (blue/orange/aqua) on a white surface, a table view on every chart, one y-axis, legends for 2 or more series, 24px bar cap, value-first tooltips, diverging blue/red for positive and negative cash flow | Accessible and consistent; aqua is below 3:1 so the table view is mandatory |
+| D-035 | Accepted (Phase 5) | Type/zone aggregation served by `/api/properties/segments` instead of computed in React | Keeps all business logic in Java (PDF §2) |
+| D-036 | Accepted (Phase 5) | Light theme only; no dark mode | D-011 chose one cohesive light theme for projector and print; a dark palette would need its own validation |

@@ -50,7 +50,7 @@ These are simplifications chosen for clarity, not market estimates.
 | Occasional | 10% | 40% | 50% (exponential, mean 9 days) |
 | Chronic | none | 10% | 90% (4 + exponential, mean 20 days) |
 
-- Late delays are capped at 150 days.
+- The delay of the main payment is capped at 150 days. A recovered short payment (below) settles later, so a few completed payments are more than 150 days late (the sample's maximum is 171).
 - Some payments are split into 2–3 instalments (punctual 3%, occasional 12%, chronic 25%).
 - **Short payments:** some instalments are first paid only 50–90%. Chance: punctual 0.2%, occasional 3%, chronic 12%; ×1.5 for retail. In 75% of cases the remainder is recovered 15–120 days later; otherwise it stays owed.
 - **Defaulters** pay like chronic tenants for 3–10 instalments, then stop. Their lease is terminated 3 months later.

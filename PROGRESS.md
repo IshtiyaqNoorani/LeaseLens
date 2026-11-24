@@ -50,6 +50,14 @@
   - Tukey 1.5×IQR flagged 150 skewed expense records; the default is now k = 3 (36 flagged), with 1.5 on request.
   - Planted pattern 5 was strengthened so it survives random variation; the sample was regenerated and the spec updated.
 
+## Phase 5: React analytical application (complete, awaiting review)
+- [x] Screens: Data Workspace (load sample or golden, upload with a full validation report, analysis date), Portfolio Overview (hero surplus, 12 KPIs, monthly trend, receivables ageing, attention rules), Property Performance (server-sorted league table, occupancy vs collection scatter, type/zone segments), Property detail, Cash-Flow Explorer (range, worst/best day, daily chart, month/quarter periods, A vs B comparison, corrections with before/after, log, undo, reset), Payment Behaviour (percentiles, new-seed randomization demo, histogram vs threshold, slow-payment records, outstanding ageing), Operating Expenses (category, monthly, by property, unusual records with fence choice), Methodology, Lab placeholder
+- [x] Algorithm panel on every algorithm-backed result (name, syllabus unit, complexity, n, nodes or comparisons, server time, seed)
+- [x] Charts follow the dataviz method: validated palette (blue/orange/aqua; aqua below 3:1, so every chart has a table view), one y-axis, legends for 2 or more series, thin marks, value-first tooltips
+- [x] New backend endpoint `/api/properties/segments` so type/zone aggregation stays in Java (+1 API test)
+- [x] Browser-verified: Overview, Properties, Cash-Flow correction then undo (22 nodes touched; header badge updates), Payments new-seed runs (same percentiles; 14,278 / 23,606 / 18,310 comparisons), Expenses, invalid upload (OCCUPANCY_EXCEEDS_RENTABLE shown with line and column; previous data kept). The only console error is the expected 422.
+- Fixes during the phase: `Input`/`Select` dropped their base styles when given a `className`; before/after tiles now show full rupee amounts (compact figures hid the change); removed two client-side derived numbers so the frontend computes nothing analytical.
+
 ## Open questions for the team
 1. (Answer received: Git identities set; see CONTRIBUTIONS.md.)
 2. (Answer received: Randomized Quick Sort declined.)
