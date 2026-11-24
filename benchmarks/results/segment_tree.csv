@@ -1,0 +1,72 @@
+# generated_at: 2026-11-24T18:39:39.839264Z
+# java: 24.0.2 (Java HotSpot(TM) 64-Bit Server VM)
+# os: Mac OS X 15.7.3 aarch64
+# cpu_cores: 10
+# max_heap_mb: 1024
+# jvm_args: -Xms1g -Xmx1g
+# sizes: [1000, 10000, 100000]
+# warmup_iterations: 10
+# timed_repetitions: 20
+# seed: 42
+# timing: System.nanoTime per repetition; median and IQR reported; results fed to a volatile sink
+suite,experiment,algorithm,role,n,workload,parameter,repetitions,median_ns,p25_ns,p75_ns,min_ns,max_ns,mean_ns,operations,verified,seed,note
+segment-tree,build,SegmentTree,assessed,1000,build only,-,20,12981,9268,20832,7544,31815,15968.1,-1,true,42,build O(n)
+segment-tree,build,PrefixSums,baseline,1000,build only,-,20,2900,1502,3485,1333,7996,2948.6,-1,true,42,build O(n)
+segment-tree,workload,SegmentTree,assessed,1000,"10000 ops, random ranges",update_ratio=0.00,20,1165209,1114583,1185459,1084875,1309125,1175193.8,329624,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,1000,"10000 ops, random ranges",update_ratio=0.00,20,1992250,1980291,2006792,1967500,2072667,2001595.9,3327498,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,1000,"10000 ops, random ranges",update_ratio=0.00,20,9104,8939,9657,8776,88185,21770.2,20000,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,1000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,786125,751875,794583,747146,961396,792608.3,262626,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,1000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,238052,234416,257645,227218,293948,246841.2,164390,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,1000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,9203,9033,9390,8935,10054,9262.7,20000,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,1000,"10000 ops, random ranges",update_ratio=0.01,20,1142250,1069167,1207000,1032375,1408125,1161535.4,327238,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,1000,"10000 ops, random ranges",update_ratio=0.01,20,1988875,1985750,2003584,1943917,2096542,1995312.6,3309762,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,1000,"10000 ops, random ranges",update_ratio=0.01,20,15245,15022,50939,14941,95983,31552.8,70258,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,1000,"10000 ops, random ranges",update_ratio=0.10,20,991458,985646,1006062,979166,1055021,1000725.8,307393,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,1000,"10000 ops, random ranges",update_ratio=0.10,20,1830459,1818292,1838750,1751542,1866708,1826206.4,2992988,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,1000,"10000 ops, random ranges",update_ratio=0.10,20,53217,52914,53618,51254,56149,53267.7,543819,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,1000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,766125,751792,785500,724291,943208,778219.6,247822,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,1000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,265533,249675,268133,220000,306516,260091.3,149403,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,1000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,51347,51146,51797,49759,57676,51757.0,521311,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,1000,"10000 ops, random ranges",update_ratio=0.50,20,928458,923500,954958,910541,1014083,941086.3,217761,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,1000,"10000 ops, random ranges",update_ratio=0.50,20,1041834,1032458,1055208,1007959,1181708,1048960.4,1652430,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,1000,"10000 ops, random ranges",update_ratio=0.50,20,230600,230066,231341,225800,260041,232970.1,2538124,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,build,SegmentTree,assessed,10000,build only,-,20,142500,93875,208244,64696,574267,178177.3,-1,true,42,build O(n)
+segment-tree,build,PrefixSums,baseline,10000,build only,-,20,15817,12725,17413,11728,22461,15881.8,-1,true,42,build O(n)
+segment-tree,workload,SegmentTree,assessed,10000,"10000 ops, random ranges",update_ratio=0.00,20,1682125,1665791,1719750,1601959,1777416,1688833.4,464876,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,10000,"10000 ops, random ranges",update_ratio=0.00,20,17115000,16928459,17266458,16851042,17355167,17116460.6,33186241,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,10000,"10000 ops, random ranges",update_ratio=0.00,20,22824,22057,22983,19673,23532,22435.2,20000,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,10000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,1194542,1164250,1207458,1119542,1937000,1229468.8,334044,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,10000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,261708,258083,269302,250635,332885,268794.9,166064,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,10000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,15104,14872,15744,14434,21352,16047.4,20000,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,10000,"10000 ops, random ranges",update_ratio=0.01,20,1611667,1601084,1637583,1591584,1863333,1634662.5,461172,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,10000,"10000 ops, random ranges",update_ratio=0.01,20,16929042,16838709,17167458,16805167,17215708,17003079.2,32849810,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,10000,"10000 ops, random ranges",update_ratio=0.01,20,48910,48769,49049,48255,50539,49011.2,519665,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,10000,"10000 ops, random ranges",update_ratio=0.10,20,1590416,1542791,1614417,1525083,1700167,1595110.4,433215,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,10000,"10000 ops, random ranges",update_ratio=0.10,20,15797042,15694083,15895166,15492167,15984375,15807779.2,30399229,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,10000,"10000 ops, random ranges",update_ratio=0.10,20,341236,340597,342041,336875,347139,341352.5,4795856,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,10000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,1098875,1096167,1103750,1090000,1160250,1105516.8,314109,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,10000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,229075,226958,230341,226533,239108,230053.1,148533,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,10000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,360139,359861,360653,354569,370555,360196.3,5076512,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,10000,"10000 ops, random ranges",update_ratio=0.50,20,1532041,1522834,1539542,1509458,1563458,1531795.8,304460,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,10000,"10000 ops, random ranges",update_ratio=0.50,20,8754458,8629792,8777375,8508750,8815208,8716635.4,16663247,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,10000,"10000 ops, random ranges",update_ratio=0.50,20,1712375,1706542,1730167,1677000,1759792,1719050.0,25113977,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,build,SegmentTree,assessed,100000,build only,-,20,2635791,1909750,3489167,1521208,7423500,2986520.8,-1,true,42,build O(n)
+segment-tree,build,PrefixSums,baseline,100000,build only,-,20,97187,81345,109315,66663,198288,103313.5,-1,true,42,build O(n)
+segment-tree,workload,SegmentTree,assessed,100000,"10000 ops, random ranges",update_ratio=0.00,20,4077458,3995458,4216375,3923791,12010041,4593189.6,597868,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,100000,"10000 ops, random ranges",update_ratio=0.00,20,168679542,168516875,168789791,168274958,169212917,168700493.8,335753855,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,100000,"10000 ops, random ranges",update_ratio=0.00,20,64854,60404,66466,57375,175754,69940.9,20000,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,100000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,2750459,2676333,2840625,2628750,3653083,2848583.4,401408,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,100000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,339430,334194,353000,329694,691916,364182.3,166370,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,100000,"10000 ops, short (<=32 days) ranges",update_ratio=0.00,20,60009,58740,62289,57745,88851,62221.3,20000,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,100000,"10000 ops, random ranges",update_ratio=0.01,20,3992250,3860750,4060208,3816166,4663208,4013920.8,592591,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,100000,"10000 ops, random ranges",update_ratio=0.01,20,166098791,165844584,166655625,165583625,169347250,166452171.0,329801189,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,100000,"10000 ops, random ranges",update_ratio=0.01,20,651750,650312,663125,645166,980125,674693.6,5354817,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,100000,"10000 ops, random ranges",update_ratio=0.10,20,3863250,3811000,4075959,3742666,4702541,3974410.5,556356,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,100000,"10000 ops, random ranges",update_ratio=0.10,20,150176750,150083917,150324166,150005208,151591708,150302429.0,298105318,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,100000,"10000 ops, random ranges",update_ratio=0.10,20,5570042,5561500,5580792,5542250,5655500,5582643.8,49833038,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,100000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,2968917,2926791,3054500,2809375,3210541,2982474.9,379565,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,100000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,306000,301823,325416,297843,397250,315936.1,150796,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,100000,"10000 ops, short (<=32 days) ranges",update_ratio=0.10,20,5351292,5331917,5392791,5314833,5476833,5370316.7,47752467,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten
+segment-tree,workload,SegmentTree,assessed,100000,"10000 ops, random ranges",update_ratio=0.50,20,3672875,3586875,3780250,3558334,4585458,3731808.3,385093,true,42,sum+min+max; ops = nodes visited
+segment-tree,workload,LinearScan,baseline,100000,"10000 ops, random ranges",update_ratio=0.50,20,86040417,85569792,87632167,85314542,111733125,88521466.8,168375883,true,42,sum+min+max; ops = elements scanned
+segment-tree,workload,PrefixSums,baseline,100000,"10000 ops, random ranges",update_ratio=0.50,20,28929125,28786833,29011417,28564500,29163292,28909698.0,256030969,true,42,SUM ONLY (cannot answer min/max); ops = prefix entries read or rewritten

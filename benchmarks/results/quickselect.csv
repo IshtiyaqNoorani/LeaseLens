@@ -1,0 +1,120 @@
+# generated_at: 2026-11-24T18:39:39.839264Z
+# java: 24.0.2 (Java HotSpot(TM) 64-Bit Server VM)
+# os: Mac OS X 15.7.3 aarch64
+# cpu_cores: 10
+# max_heap_mb: 1024
+# jvm_args: -Xms1g -Xmx1g
+# sizes: [1000, 10000, 100000]
+# warmup_iterations: 10
+# timed_repetitions: 20
+# seed: 42
+# timing: System.nanoTime per repetition; median and IQR reported; results fed to a volatile sink
+suite,experiment,algorithm,role,n,workload,parameter,repetitions,median_ns,p25_ns,p75_ns,min_ns,max_ns,mean_ns,operations,verified,seed,note
+quickselect,single-percentile,RandomizedQuickselect,assessed,1000,uniform,P90,20,13264,13047,19047,3776,64160,17532.8,3145,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,1000,uniform,P90,20,20333,20017,21598,19690,34821,21678.6,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,1000,delays,P90,20,3007,2788,3373,2397,34918,8194.7,1895,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,1000,delays,P90,20,9742,9398,9873,9153,16318,10096.9,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,1000,sorted,P90,20,2834,2738,2917,2639,10118,3387.1,2272,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,1000,sorted,P90,20,1469,1353,3025,1324,3289,2025.0,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,1000,reverse,P90,20,15070,14057,16802,4684,21919,14811.6,3562,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,1000,reverse,P90,20,4386,4303,4473,3957,7421,4596.8,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,1000,identical,P90,20,1948,1905,1997,1819,11428,2424.0,1000,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,1000,identical,P90,20,1317,1261,3340,1240,12993,2855.6,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,uniform,k=1,20,4051,3961,4091,3772,12779,4588.6,3145,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,uniform,k=1,20,9432,9351,14207,9290,33080,12601.4,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,uniform,k=3,20,8106,8040,8271,7992,20346,8878.4,8728,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,uniform,k=3,20,9015,8924,9405,8757,44302,11361.7,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,uniform,k=5,20,13818,13271,14115,13154,15072,13771.3,16893,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,uniform,k=5,20,9147,9071,9461,8987,27957,10617.7,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,uniform,k=9,20,18190,18093,18330,17907,19553,18303.7,23412,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,uniform,k=9,20,9337,9148,10087,9030,22920,10601.7,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,uniform,k=19,20,43546,42270,48913,41703,114660,51057.5,56826,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,uniform,k=19,20,10349,9362,11246,9178,28997,11297.3,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,delays,k=1,20,2665,2612,2775,2524,7366,2963.1,1895,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,delays,k=1,20,3902,3841,4166,3762,12681,5013.5,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,delays,k=3,20,3606,3404,3800,3222,9977,4268.4,3799,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,delays,k=3,20,3561,3494,3892,3403,6645,4029.9,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,delays,k=5,20,5264,5132,5496,5008,22963,6317.6,6805,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,delays,k=5,20,3046,2916,3787,2885,7772,3517.9,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,delays,k=9,20,8830,8705,8977,8655,9209,8868.5,13306,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,delays,k=9,20,2963,2944,2995,2901,3028,2968.9,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,1000,delays,k=19,20,19399,19168,19465,19139,20460,19410.4,29850,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,1000,delays,k=19,20,2964,2945,2971,2890,3022,2960.6,-1,true,42,"one sort, then k lookups"
+quickselect,pivot-rule,RandomizedQuickselect,assessed,1000,sorted,P90,20,1716,1697,1728,1661,1830,1718.7,2272,true,42,"3-way, random pivot; ops = comparisons"
+quickselect,pivot-rule,Quickselect3Way-FirstPivot,baseline,1000,sorted,P90,20,20202,20173,20277,20144,44353,22692.7,29915,true,42,our 3-way partition with a fixed first-element pivot; ops = comparisons
+quickselect,pivot-rule,Classic2Way-FirstPivot,baseline,1000,sorted,P90,20,77160,76474,77394,75974,78727,77256.8,494550,true,42,"textbook Lomuto, first-element pivot (Θ(n²) here); ops = comparisons"
+quickselect,partition,RandomizedQuickselect,assessed,1000,delays,P90,20,1951,1945,1970,1911,2783,2020.4,1895,true,42,"3-way partition, random pivot; ops = comparisons"
+quickselect,partition,Classic2Way-RandomPivot,baseline,1000,delays,P90,20,2060,2045,2117,2030,47435,10429.0,4440,true,42,"2-way partition, random pivot (degrades on equal values); ops = comparisons"
+quickselect,partition,RandomizedQuickselect,assessed,1000,identical,P90,20,951,941,954,933,969,950.2,1000,true,42,"3-way partition, random pivot; ops = comparisons"
+quickselect,partition,Classic2Way-RandomPivot,baseline,1000,identical,P90,20,103479,102762,104283,101841,107929,103896.9,494550,true,42,"2-way partition, random pivot (degrades on equal values); ops = comparisons"
+quickselect,single-percentile,RandomizedQuickselect,assessed,10000,uniform,P90,20,23610,23560,23867,23527,24894,23813.3,28565,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,10000,uniform,P90,20,139951,137951,196534,137500,221097,167624.0,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,10000,delays,P90,20,21654,20181,24332,17614,90258,26183.1,20141,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,10000,delays,P90,20,22161,21798,26197,21628,54696,27152.6,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,10000,sorted,P90,20,18604,18443,18696,18344,18876,18602.6,26825,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,10000,sorted,P90,20,3321,3242,3385,3212,3663,3351.5,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,10000,reverse,P90,20,17283,17206,17429,17074,27858,17879.5,24935,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,10000,reverse,P90,20,6434,6402,6491,6353,6775,6471.2,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,10000,identical,P90,20,6979,6960,7057,6939,7329,7032.5,10000,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,10000,identical,P90,20,3210,3180,3250,3094,5124,3323.3,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,uniform,k=1,20,23629,23501,23989,23419,26984,23972.8,28565,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,uniform,k=1,20,154041,152101,205744,150994,251053,179219.3,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,uniform,k=3,20,62783,62213,65234,61682,78856,64738.5,72386,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,uniform,k=3,20,199493,194882,207180,188639,233458,203042.4,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,uniform,k=5,20,123180,120046,124972,93638,135046,121381.2,128743,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,uniform,k=5,20,150791,149916,151934,149470,157017,151389.4,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,uniform,k=9,20,198635,196281,224625,195187,272479,216521.5,255128,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,uniform,k=9,20,163866,163200,166075,159175,223925,168994.3,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,uniform,k=19,20,430625,428750,436347,426652,442583,432705.3,525628,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,uniform,k=19,20,212875,197333,214683,154975,221216,202214.3,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,delays,k=1,20,17099,17030,17194,16909,28239,17772.8,20141,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,delays,k=1,20,22528,22467,22634,22353,23637,22632.8,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,delays,k=3,20,33852,33765,34006,33669,34733,33931.3,47891,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,delays,k=3,20,22517,22456,22998,22277,25936,22940.4,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,delays,k=5,20,52056,51912,52258,51816,54216,52335.3,76372,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,delays,k=5,20,22446,22352,22632,22194,22922,22499.0,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,delays,k=9,20,91500,90125,92718,89989,98250,92384.6,141147,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,delays,k=9,20,22564,22307,22733,22194,23549,22587.5,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,10000,delays,k=19,20,200708,200116,203608,199433,212616,202507.5,324042,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,10000,delays,k=19,20,22638,22579,22746,22270,24843,22865.8,-1,true,42,"one sort, then k lookups"
+quickselect,pivot-rule,RandomizedQuickselect,assessed,10000,sorted,P90,20,18838,18639,18969,18554,19422,18872.6,26825,true,42,"3-way, random pivot; ops = comparisons"
+quickselect,pivot-rule,Quickselect3Way-FirstPivot,baseline,10000,sorted,P90,20,622125,617146,624000,612062,641375,621972.7,940410,true,42,our 3-way partition with a fixed first-element pivot; ops = comparisons
+quickselect,pivot-rule,Classic2Way-FirstPivot,baseline,10000,sorted,P90,20,9464834,9447375,9489625,9385625,9549750,9467220.9,49495500,true,42,"textbook Lomuto, first-element pivot (Θ(n²) here); ops = comparisons"
+quickselect,partition,RandomizedQuickselect,assessed,10000,delays,P90,20,20371,19961,20679,19558,32848,20985.7,20141,true,42,"3-way partition, random pivot; ops = comparisons"
+quickselect,partition,Classic2Way-RandomPivot,baseline,10000,delays,P90,20,18790,18618,18893,18554,19790,18833.8,66231,true,42,"2-way partition, random pivot (degrades on equal values); ops = comparisons"
+quickselect,partition,RandomizedQuickselect,assessed,10000,identical,P90,20,8963,8957,9020,8940,9582,9019.8,10000,true,42,"3-way partition, random pivot; ops = comparisons"
+quickselect,partition,Classic2Way-RandomPivot,baseline,10000,identical,P90,20,9458292,9435791,9483042,9368375,9533875,9460162.5,49495500,true,42,"2-way partition, random pivot (degrades on equal values); ops = comparisons"
+quickselect,single-percentile,RandomizedQuickselect,assessed,100000,uniform,P90,20,333208,327555,474972,320472,949569,453311.4,181634,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,100000,uniform,P90,20,3588000,3566792,3639917,3541542,4139125,3653418.8,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,100000,delays,P90,20,531229,520291,557875,501270,649145,549646.6,261587,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,100000,delays,P90,20,453875,443917,473583,440125,816833,481777.1,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,100000,sorted,P90,20,343187,271562,352302,269822,366916,320188.2,404213,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,100000,sorted,P90,20,144291,90709,574250,77625,1035500,316100.0,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,100000,reverse,P90,20,258177,249187,279125,173791,930177,330758.5,248236,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,100000,reverse,P90,20,63059,62307,63856,61692,132799,66771.7,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,single-percentile,RandomizedQuickselect,assessed,100000,identical,P90,20,69113,68775,69988,68313,104611,71635.9,100000,true,42,ops = comparisons
+quickselect,single-percentile,Arrays.sort,baseline,100000,identical,P90,20,29140,28541,30080,28301,43460,30345.8,-1,true,42,JDK dual-pivot quicksort; not instrumented
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,uniform,k=1,20,252364,249208,255760,244468,417552,265960.1,181634,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,uniform,k=1,20,3529541,3504291,3571125,3484750,3599209,3538739.7,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,uniform,k=3,20,1289958,1254958,1297542,1237458,1333209,1282256.2,773590,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,uniform,k=3,20,3536417,3517833,3556958,3504084,3592292,3540758.3,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,uniform,k=5,20,2014083,1996416,2040125,1976958,2100750,2024131.2,1617075,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,uniform,k=5,20,3480667,3464667,3524584,3452666,3610917,3499310.4,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,uniform,k=9,20,2943291,2921292,2972334,2911583,3079083,2954466.7,2807990,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,uniform,k=9,20,3504208,3481417,3532958,3439708,3556166,3502985.4,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,uniform,k=19,20,4776750,4758875,4795000,4745959,4846666,4784266.6,5317600,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,uniform,k=19,20,3542583,3524791,3570000,3500584,3618833,3549475.0,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,delays,k=1,20,446889,440055,454777,432472,516500,451014.3,261587,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,delays,k=1,20,505270,468708,511271,459729,584104,501290.4,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,delays,k=3,20,629541,616666,633875,591229,933000,640232.0,500210,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,delays,k=3,20,436604,433833,440375,429187,495895,442400.8,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,delays,k=5,20,763104,756125,775854,742458,902083,779467.5,767213,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,delays,k=5,20,433972,426889,449194,423041,554625,448815.1,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,delays,k=9,20,1239500,1197167,1298417,1176083,4678125,1478693.7,1358409,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,delays,k=9,20,454402,450527,473528,436458,559569,464965.0,-1,true,42,"one sort, then k lookups"
+quickselect,k-percentiles,RandomizedQuickselect,assessed,100000,delays,k=19,20,2033292,2019666,2050875,2007500,2095459,2038150.1,2769747,true,42,selectMany on one copy; ops = comparisons
+quickselect,k-percentiles,Arrays.sort,baseline,100000,delays,k=19,20,447750,422708,456263,415972,470291,441021.2,-1,true,42,"one sort, then k lookups"
+quickselect,pivot-rule,RandomizedQuickselect,assessed,100000,sorted,P90,20,272229,270593,274135,270104,433635,280852.3,404213,true,42,"3-way, random pivot; ops = comparisons"
+quickselect,pivot-rule,Quickselect3Way-FirstPivot,baseline,100000,sorted,P90,20,19417708,19366708,19524833,19296584,19608167,19438091.7,29703987,true,42,our 3-way partition with a fixed first-element pivot; ops = comparisons
+quickselect,partition,RandomizedQuickselect,assessed,100000,delays,P90,20,390180,383264,404263,379069,530458,404370.5,261587,true,42,"3-way partition, random pivot; ops = comparisons"
+quickselect,partition,RandomizedQuickselect,assessed,100000,identical,P90,20,88930,88479,89465,88246,92059,89242.4,100000,true,42,"3-way partition, random pivot; ops = comparisons"
