@@ -74,7 +74,7 @@ The analysis (Phase 7 notebook, and the app's Phase 4–5 views) should **recove
 | 3 | Vacancy shock | Offices **P005** and **P006** have no lease running from 2024-09-01 to at least 2025-05-01 | Next leases start between 2025-05-09 and 2025-06-19 |
 | 4 | Outsized repairs | 1.2% of repairs are multiplied by 8–15 | 6 of 515 repair records exceed 8× the median repair (₹22,158) |
 | 5 | Degrading collections | Office **P008**: from month 18 (May 2025), 45% of instalments are only 30–70% paid (the rest is never recovered) and delays grow | Cohort collection efficiency 98.74% before May 2025 → **86.85%** after |
-| 6 | No direct expense–collection link (negative control) | Expenses never depend on rent collected; both scale with property size | A raw correlation between them should appear because of size. Per-sq-ft or within-property analysis should show **no** direct link. Reporting a causal link would be an error. |
+| 6 | No direct expense–collection link (negative control) | Expenses never depend on rent collected. Both scale with property size, and management and utility fees are a share of *potential* rent | EDA: raw ρ = 0.98 (size) and per-sq-ft ρ = 0.91 (rent level, through the fee design), as expected. The negative control, expense ratio against collection efficiency, gives ρ = −0.02 with a 95% CI of [−0.30, 0.28], so **no link**. Within-property monthly ρ has a median of 0.06. Reporting a causal link would be an error. |
 
 **An unplanted pattern to be aware of:** office P010 has the lowest collection efficiency before May 2025 (62.6%) and the lowest overall (86.5%). This comes from random tenant behaviour (a defaulting tenant), not from a planted rule. Not every outlier is planted, and the analysis should describe it without inventing a cause.
 

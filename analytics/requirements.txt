@@ -1,0 +1,8 @@
+# Supplementary EDA only (the assessed algorithms are in Java). Tested with Python 3.13.
+pandas==3.1.1
+numpy==2.5.5
+matplotlib==3.11.2
+scipy==1.18.1
+nbformat==5.11.1
+nbconvert==7.17.2
+ipykernel==7.4.0
