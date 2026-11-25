@@ -2,7 +2,6 @@
 
 Team: Raakin Majeed (2404537), Ishtiyaq Noorani (2408912).
 
-This file records who owns, wrote or reviewed each part, and is updated at the end of every phase. It must match the Git history. Development is AI-assisted (Claude Code). Each owner reviews, tests and must be able to explain every line of their module in the viva.
 
 | Area | Owner | Reviewer | Status |
 |---|---|---|---|
